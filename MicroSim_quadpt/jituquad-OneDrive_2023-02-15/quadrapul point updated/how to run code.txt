@@ -1,0 +1,16 @@
+First run the allan_chan_3D_quad point
+
+It will generate updated matrix(mat2) with set_list_total.pkl and 
+updated matrix(mat3) with j.pkl
+
+Read these .pkl files in read mat2
+
+This code will generate triple_data_timestamp.pkl files which cointans the 3d matrix for eac time stamp
+
+Read the above generated triple_data_timestamp.pkl files in quad point. Here it generates teh triple point and these coordinates are stored in 
+triple_point_coordinates_3D and triple_point_coordinates_3D.
+
+Read triple_point_coordinates_3D and triple_point_coordinates_3D using read_triple and quad data.
+Here you can generate graph to compare and print no of triple and quadrapul points at each time step.
+
+To put the triple points and quadrapul points into a csv file use csv_test
