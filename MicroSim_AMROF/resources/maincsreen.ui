@@ -9561,7 +9561,7 @@ background-color: rgb(64, 140, 191);
          <string notr="true">#radio_amrex{
 padding : 10px;
 color: rgb(255, 255, 255);
-background-color: rgb(186, 143, 62);
+background-color: rgb(100, 0, 100);
 border : 2px solid rgb(64, 140, 191);
 }
 
@@ -9759,7 +9759,7 @@ border : 2px solid rgb(0, 0, 0);
          <string notr="true">#radio_of{
 padding : 10px;
 color: rgb(255, 255, 255);
-background-color: rgba(111, 147, 1,255);
+background-color: rgb(0, 100, 100);
 border : 2px solid rgb(64, 140, 191);
 }
 
@@ -12678,7 +12678,7 @@ background-color: rgb(172, 48, 26);
       <string notr="true">#model_amrex{
 padding : 10px;
 color: rgb(255, 255, 255);
-background-color: rgba(111, 147, 1,255);
+background-color: rgb(100, 0, 100);
 border : 2px solid rgb(119, 152, 194);
 }
 
@@ -12717,7 +12717,7 @@ border : 2px solid rgb(0, 0, 0);
       <string notr="true">#model_of{
 padding : 10px;
 color: rgb(255, 255, 255);
-background-color: rgb(186, 143, 62);
+background-color: rgb(0, 100, 100);
 border : 2px solid rgb(119, 152, 194);
 }
 
@@ -13552,8 +13552,8 @@ border :1px solid rgb(192, 191, 188);
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>228</width>
-             <height>1378</height>
+             <width>206</width>
+             <height>1342</height>
             </rect>
            </property>
            <property name="styleSheet">

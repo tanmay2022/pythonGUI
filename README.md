@@ -4,13 +4,13 @@
 
 * Install Miniconda package manager from https://repo.anaconda.com/miniconda/Miniconda3-py310_23.1.0-1-Linux-x86_64.sh
 
-* Now create a virtual environment with python and pip:
+* Now create a virtual environment with python 3.9 (this version and previous are compatible with the packages required) and pip:
 
-> conda create --name micros python pip
+> conda create --name msenv python=3.9 pip
 
 * Activate virtual environment micros:
 
-> conda activate micros
+> conda activate msenv
 
 * Install the packages below using pip (group them together to avoid dependency issue):
 
