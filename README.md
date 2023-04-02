@@ -8,7 +8,7 @@
 
 > conda create --name msenv python=3.9 pip
 
-* Activate virtual environment micros:
+* Activate virtual environment msenv:
 
 > conda activate msenv
 
