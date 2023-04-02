@@ -206,6 +206,18 @@ def SolverExecute(self):
         commandLine ="cd ~/MicroSim/Grand_potential_Finite_difference_2D_MPI/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_gp ~/MicroSim/bin/;cd " + self.runDir + ";mpirun.mpich -np 4 ~/MicroSim/bin/microsim_gp "  +self.infile.text()+" "+self.filling.text()+" "+self.output.text() + " 2 2"
         
         os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
+
+    elif self.radio_of.isChecked():
+            
+        commandLine ="cd ~/MicroSim/Grand_potential_Finite_difference_2D_MPI/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_gp ~/MicroSim/bin/;cd " + self.runDir + ";mpirun.mpich -np 4 ~/MicroSim/bin/microsim_gp "  +self.infile.text()+" "+self.filling.text()+" "+self.output.text() + " 2 2"
+        
+        os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
+
+    elif self.radio_amrex.isChecked():
+            
+        commandLine ="cd ~/MicroSim/Grand_potential_Finite_difference_2D_MPI/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_gp ~/MicroSim/bin/;cd " + self.runDir + ";mpirun.mpich -np 4 ~/MicroSim/bin/microsim_gp "  +self.infile.text()+" "+self.filling.text()+" "+self.output.text() + " 2 2"
+        
+        os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
     
     elif self.radio_KKR.isChecked():
         commandLine ="cd ~/MicroSim/KKS_CuFFT/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_kks_cufft ~/MicroSim/bin/;cd " + self.runDir + ";mpirun -n 4 ~/MicroSim/bin/microsim_kks_cufft "  +self.infile.text()+" "+self.filling.text()+" "+self.output.text()
