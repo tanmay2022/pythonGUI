@@ -46,7 +46,7 @@ validator2fill = QRegExpValidator(QRegExp(r'^\d{0-9}(\,\d{0-9})?$'))
 class StartScreen(QDialog):
     def __init__(self):
         super(StartScreen,self).__init__()
-        loadUi("resources/maincsreen.ui",self)
+        loadUi("resources/mainscreen.ui",self)
         self.setWindowTitle("MicroSim")
         self.logo.setStyleSheet("background-image : url(resources/img/MicroSim2.png)")
         self.logo_2.setStyleSheet("background-image : url(resources/img/MicroSim2.png)")
