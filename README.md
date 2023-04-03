@@ -4,7 +4,7 @@
 
 * Install Miniconda package manager from https://repo.anaconda.com/miniconda/Miniconda3-py310_23.1.0-1-Linux-x86_64.sh
 
-* Now create a virtual environment with python 3.9 (this version and previous are compatible with the packages required) and pip:
+* Now create a virtual environment with python 3.9 (version previous to this are also compatible with the packages required) and pip:
 
 > conda create --name msenv python=3.9 pip
 
@@ -19,3 +19,14 @@
 * Launch MicroSim:
 
 > python MicroSim.py
+
+# Do you want to modify the GUI as a developer?
+
+* You can switch to some other environment like base:
+
+> conda activate base
+
+* Install pyqt to have access to QT designer:
+
+> conda install pyqt
+
