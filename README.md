@@ -30,3 +30,8 @@
 
 > conda install pyqt
 
+* Launch QT designer:
+
+> designer
+
+* Open resources/mainscreen.ui
