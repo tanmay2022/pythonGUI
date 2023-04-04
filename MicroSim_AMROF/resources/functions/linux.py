@@ -215,7 +215,7 @@ def SolverExecute(self):
 
     elif self.radio_amrex.isChecked():
             
-        commandLine ="cd ~/MicroSim/Grand_potential_AMReX/Exec; make clean;./bash.sh"
+        commandLine ="cd ~/MicroSim/Grand_potential_AMReX/Exec; make clean; make;  g++ -o Replace Replace.cpp; ./Replace; cp main2d.gnu.MPI.ex ~/MicroSim/bin/;cd " + self.runDir + ";mpirun -np 4 ~/MicroSim/bin/main2d.gnu.MPI.ex input2.in"
         
         os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
     
@@ -251,7 +251,7 @@ def SolverExecuteHelp(self):
     elif self.radio_amrex.isChecked():
 
         Model_Folder= "Grand_potential_AMReX"
-        Model_code ="bash.sh"
+        Model_code ="main2d.gnu.MPI.ex"
     
     elif self.radio_KKR.isChecked():
 
@@ -294,7 +294,7 @@ def generateJobscript(self):
         
     elif self.radio_amrex.isChecked():
             
-        commandLine ="cd ~/MicroSim/Grand_potential_AMReX/Exec; make clean"
+        commandLine ="cd ~/MicroSim/Grand_potential_AMReX/Exec; make clean; make;  g++ -o Replace Replace.cpp; ./Replace; cp main2d.gnu.MPI.ex ~/MicroSim/bin/;cp main2d.gnu.MPI.ex "+ self.runDir +"/JOB_FILE/;cp input2.in "+ self.runDir +"/JOB_FILE/"
         
         os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
     

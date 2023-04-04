@@ -83,6 +83,7 @@ class StartScreen(QDialog):
         self.PPimage_widge.hide()
         self.PPexport_widge.hide()
         self.triple_point_widget.hide()
+        self.triple_point_widget_3.hide()
         self.quad_point_widget.hide()
         
         self.ppToolwidget.setEnabled(False)
@@ -3642,6 +3643,7 @@ class StartScreen(QDialog):
         self.triple_point_value= triple_point( self.vtkData ,self.dataset,grid_shape, self.timeItretion,self.scalerValue.currentText())
         
         self.triple_point_widget.show()
+        self.triple_point_widget_3.hide()
         self.quad_point_widget.hide()
         self.SimulationDetail.hide()
         self.pptRadius.hide()
@@ -3656,6 +3658,7 @@ class StartScreen(QDialog):
         self.tip_radius_flag = 0
         self.front_undercool_flag = 0
         self.triple_point_flag = 1
+        self.triple_point3_flag = 0
         self.quad_point_flag = 0
         self.pointCorrelation_flag = 0
         self.pricipalComponent_flag = 0
