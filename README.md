@@ -1,4 +1,4 @@
-# How to use?
+### How to use?
 
 * You can use a package manager like Miniconda or Anaconda to avoid issues with system python. Miniconda is enough for this specific purpose.
 
@@ -20,7 +20,7 @@
 
 > python MicroSim.py
 
-# Do you want to modify the GUI as a developer?
+### Do you want to modify the GUI as a developer?
 
 * You can switch to some other environment like base:
 

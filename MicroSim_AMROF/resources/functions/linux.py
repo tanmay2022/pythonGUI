@@ -209,13 +209,13 @@ def SolverExecute(self):
 
     elif self.radio_of.isChecked():
             
-        commandLine ="cd ~/MicroSim/Grand_potential_Finite_difference_2D_MPI/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_gp ~/MicroSim/bin/;cd " + self.runDir + ";mpirun.mpich -np 4 ~/MicroSim/bin/microsim_gp "  +self.infile.text()+" "+self.filling.text()+" "+self.output.text() + " 2 2"
+        commandLine ="cd ~/MicroSim/Grand_potential_OpenFOAM/; ./Allrun"
         
         os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
 
     elif self.radio_amrex.isChecked():
             
-        commandLine ="cd ~/MicroSim/Grand_potential_AMReX/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_gp ~/MicroSim/bin/;cd " + self.runDir + ";mpirun.mpich -np 4 ~/MicroSim/bin/microsim_gp "  +self.infile.text()+" "+self.filling.text()+" "+self.output.text() + " 2 2"
+        commandLine ="cd ~/MicroSim/Grand_potential_AMReX/Exec; make clean;./bash.sh"
         
         os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
     
@@ -245,13 +245,13 @@ def SolverExecuteHelp(self):
         
     elif self.radio_of.isChecked():
 
-        Model_Folder= "Grand_potential_Finite_difference_2D_MPI"
-        Model_code ="microsim_gp"
+        Model_Folder= "Grand_potential_OpenFOAM"
+        Model_code ="Allrun"
         
     elif self.radio_amrex.isChecked():
 
         Model_Folder= "Grand_potential_AMReX"
-        Model_code ="microsim_gp"
+        Model_code ="bash.sh"
     
     elif self.radio_KKR.isChecked():
 
@@ -288,13 +288,13 @@ def generateJobscript(self):
     
     elif self.radio_of.isChecked():
             
-        commandLine ="cd ~/MicroSim/Grand_potential_Finite_difference_2D_MPI/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_gp ~/MicroSim/bin/;cp microsim_gp "+ self.runDir +"/JOB_FILE/;cp reconstruct "+ self.runDir +"/JOB_FILE/;cp write_xdmf "+ self.runDir +"/JOB_FILE/"
+        commandLine ="cd ~/MicroSim/Grand_potential_OpenFOAM/"
         
         os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
         
     elif self.radio_amrex.isChecked():
             
-        commandLine ="cd ~/MicroSim/Grand_potential_AMReX/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_gp ~/MicroSim/bin/;cp microsim_gp "+ self.runDir +"/JOB_FILE/;cp reconstruct "+ self.runDir +"/JOB_FILE/;cp write_xdmf "+ self.runDir +"/JOB_FILE/"
+        commandLine ="cd ~/MicroSim/Grand_potential_AMReX/Exec; make clean"
         
         os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
     
