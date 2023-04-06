@@ -209,7 +209,7 @@ def SolverExecute(self):
 
     elif self.radio_of.isChecked():
             
-        commandLine ="cd ~/MicroSim/Grand_potential_OpenFOAM/"
+        commandLine ="cd " + self.runDir + " ; ./Allclean; ./Allrun "
         
         os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
 
@@ -248,7 +248,7 @@ def SolverExecuteHelp(self):
 
         Model_Folder= "Grand_potential_OpenFOAM"
         Model_code ="Allrun"
-        runcmdhelp = "This action will execute the following command.\n\n\n     1) Solver compilation\n\n       cd ~/MicroSim/"+Model_Folder+"/  \n \n      python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + "\n\n      make clean\n\n      make\n\n\n     2) Solver execution\n\n      cp "+ Model_code+" ~/MicroSim/bin/\n\n      cd " + self.runDir + "\n\n      mpirun.mpich -np 4 ~/MicroSim/bin/"+ Model_code+" "  +self.infile.text()+" "+self.filling.text()+" "+self.output.text() + " 2 2"
+        runcmdhelp = "This action will execute the following command:\n\n\n     1) Solver compilation\n\n       cd ~/MicroSim/"+Model_Folder+"\n\n      wclean\n\n      wmake\n\n\n     2) Solver execution\n\n      ./Allclean\n\n      ./Allrun"
         
     elif self.radio_amrex.isChecked():
 
@@ -315,6 +315,6 @@ def generateJobscript(self):
         os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
 
     elif self.radio_CH.isChecked():
-        commandLine ="cd ~/MicroSim/Cahn_Hilliard_FFT_2D/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp cp microsim_ch_fft ~/MicroSim/bin/;cp microsim_ch_fft "+ self.runDir +"/JOB_FILE/;cp reconstruct "+ self.runDir +"/JOB_FILE/;cp write_xdmf "+ self.runDir +"/JOB_FILE/"
+        commandLine ="cd ~/MicroSim/Cahn_Hilliard_FFT_2D/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_ch_fft ~/MicroSim/bin/;cp microsim_ch_fft "+ self.runDir +"/JOB_FILE/;cp reconstruct "+ self.runDir +"/JOB_FILE/;cp write_xdmf "+ self.runDir +"/JOB_FILE/"
         
         os.system("gnome-terminal -e 'bash -c \""+commandLine+";bash\"'")
