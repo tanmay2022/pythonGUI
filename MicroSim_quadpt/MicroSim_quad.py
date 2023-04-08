@@ -257,8 +257,8 @@ class StartScreen(QDialog):
         self.tip_radiusbtn.clicked.connect(self.tip_radiusbtnClicked)
         self.front_undercoolbtn.clicked.connect(self.front_undercoolbtnClicked)
         self.triple_pointbtn.clicked.connect(self.triple_pointbtnClicked)
-        #self.triple_pointbtn.clicked.connect(self.triple_pointbtnClicked)
-        #self.triple_pointbtn.clicked.connect(self.triple_pointbtnClicked)
+        #self.triple_pointbtn_3.clicked.connect(self.triple_pointbtn_3Clicked)
+        #self.quad_pointbtn.clicked.connect(self.quad_pointbtnClicked)
         self.contourPlotbtn.clicked.connect(self.contourPlotbtnClicked)
         self.plotContour.clicked.connect(self.plotContourClicked)
         self.shiftPlotbtn.clicked.connect(self.shiftPlotbtnClicked)
@@ -3679,6 +3679,53 @@ class StartScreen(QDialog):
             self.ax.scatter(i[1],i[0],marker='o')
         self.canvas.draw()
             
+
+    def quad_pointbtnClicked(self):
+
+        AllItems = [self.scalerValue.itemText(i) for i in range(self.scalerValue.count())]
+
+        if(self.dataset == "UNSTRUCTURED_GRID"):
+            grid_shape = [self.PP_dimX , self.PP_dimY, self.PP_dimZ]
+        else:
+            grid_shape = self.vtkData[0].GetDimensions()
+
+        self.triple_point_value= quad_point( self.vtkData ,self.dataset,grid_shape, self.timeItretion,self.scalerValue.currentText())
+        
+        self.triple_point_widget.hide()
+        self.triple_point_widget_3.hide()
+        self.quad_point_widget.show()
+        self.SimulationDetail.hide()
+        self.pptRadius.hide()
+        
+        
+        self.ppt_size_flag = 0
+        self.ppt_Count_Plot_flag = 0
+        self.velocity_flag = 0
+        self.volume_SA_flag = 0
+        self.plot_over_line_flag = 0
+        self.velocity_over_line_flag = 0
+        self.tip_radius_flag = 0
+        self.front_undercool_flag = 0
+        self.triple_point_flag = 0
+        self.triple_point3_flag = 0
+        self.quad_point_flag = 1
+        self.pointCorrelation_flag = 0
+        self.pricipalComponent_flag = 0
+        self.contourPlot_flag = 0
+        
+        k = int(self.iteration_step.value())
+        self.table_triplePoint.setRowCount(len(self.triple_point_value[k]))
+        
+        for t in range(len(self.triple_point_value[k])):
+            self.table_triplePoint.setItem(t,0,QTableWidgetItem( str(t)))
+            self.table_triplePoint.setItem(t,1,QTableWidgetItem( str( self.triple_point_value[k][t]) ))
+            
+        
+        
+        for i in self.triple_point_value[k]:
+            self.ax.scatter(i[1],i[0],marker='o')
+        self.canvas.draw()
+
 
     def contourPlotbtnClicked(self):
         self.widget_contour.setMinimumSize(0,140)
