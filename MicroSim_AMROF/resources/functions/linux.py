@@ -209,7 +209,7 @@ def SolverExecute(self):
 
     elif self.radio_of.isChecked():
             
-        commandLine ="cd " + self.runDir + "; cd ../PF* ; wclean; wmake; cd " + self.runDir + " ; ./Allclean; ./Allrun "
+        commandLine ="source /home/tanmay/OpenFOAM-in-Box-20.09v2-22-g178c07ee/OpenFOAM-dev/etc/bashrc; cd " + self.runDir + "; cd ../PF* ; wclean; wmake; cd " + self.runDir + " ; ./Allclean; ./Allrun "
         
         os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
 
@@ -242,37 +242,37 @@ def SolverExecuteHelp(self):
 
         Model_Folder= "Grand_potential_Finite_difference_2D_MPI"
         Model_code ="microsim_gp"
-        runcmdhelp = "This action will execute the following command.\n\n\n     1) Solver compilation\n\n       cd ~/MicroSim/"+Model_Folder+"/  \n \n      python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + "\n\n      make clean\n\n      make\n\n\n     2) Solver execution\n\n      cp "+ Model_code+" ~/MicroSim/bin/\n\n      cd " + self.runDir + "\n\n      mpirun.mpich -np 4 ~/MicroSim/bin/"+ Model_code+" "  +self.infile.text()+" "+self.filling.text()+" "+self.output.text() + " 2 2"
+        runcmdhelp = "This action will execute the following command:\n\n\n     1) Solver compilation\n\n       cd MicroSim/"+Model_Folder+"/  \n \n      python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + "\n\n      make clean\n\n      make\n\n\n     2) Solver execution\n\n      cp "+ Model_code+" ~/MicroSim/bin/\n\n      cd " + self.runDir + "\n\n      mpirun.mpich -np 4 ~/MicroSim/bin/"+ Model_code+" "  +self.infile.text()+" "+self.filling.text()+" "+self.output.text() + " 2 2"
         
     elif self.radio_of.isChecked():
 
         Model_Folder= "Grand_potential_OpenFOAM"
         Model_code ="Allrun"
-        runcmdhelp = "This action will execute the following command:\n\n\n     1) Solver compilation\n\n       cd ~/MicroSim/"+Model_Folder+"/PFBinary/PFBinary\n\n      wclean\n\n      wmake\n\n\n     2) Solver execution\n\n      ./Allclean\n\n      ./Allrun"
+        runcmdhelp = "This action will execute the following command:\n\n\n     1) Solver compilation\n\n       cd MicroSim/"+Model_Folder+"\n\n      wclean\n\n      wmake\n\n\n     2) Solver execution\n\n      ./Allclean\n\n      ./Allrun"
         
     elif self.radio_amrex.isChecked():
 
         Model_Folder= "Grand_potential_AMReX"
         Model_code ="main2d.gnu.MPI.ex"
-        runcmdhelp = "This action will execute the following command.\n\n\n     1) Solver compilation\n\n       cd ~/MicroSim/"+Model_Folder+"/  \n \n            make clean\n\n      make\n      g++ -o Replace Replace.cpp\n      ./Replace\n\n\n     2) Solver execution\n\n      cp "+ Model_code+" ~/MicroSim/bin/\n\n      cd " + self.runDir + "\n\n      mpirun -np 4 ~/MicroSim/bin/main2d.gnu.MPI.ex input2.in"
+        runcmdhelp = "This action will execute the following command:\n\n\n     1) Solver compilation\n\n       cd MicroSim/"+Model_Folder+"/  \n \n            make clean\n\n      make\n      g++ -o Replace Replace.cpp\n      ./Replace\n\n\n     2) Solver execution\n\n      cp "+ Model_code+" ~/MicroSim/bin/\n\n      cd " + self.runDir + "\n\n      mpirun -np 4 ~/MicroSim/bin/main2d.gnu.MPI.ex input2.in"
     
     elif self.radio_KKR.isChecked():
 
         Model_Folder= "KKS_CuFFT"
         Model_code ="microsim_kks_cufft"
-        runcmdhelp = "This action will execute the following command.\n\n\n     1) Solver compilation\n\n       cd ~/MicroSim/"+Model_Folder+"/  \n \n      python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + "\n\n      make clean\n\n      make\n\n\n     2) Solver execution\n\n      cp "+ Model_code+" ~/MicroSim/bin/\n\n      cd " + self.runDir + "\n\n      mpirun -p 4 ~/MicroSim/bin/"+ Model_code+" "  +self.infile.text()+" "+self.filling.text()+" "+self.output.text()
+        runcmdhelp = "This action will execute the following command:\n\n\n     1) Solver compilation\n\n       cd MicroSim/"+Model_Folder+"/  \n \n      python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + "\n\n      make clean\n\n      make\n\n\n     2) Solver execution\n\n      cp "+ Model_code+" ~/MicroSim/bin/\n\n      cd " + self.runDir + "\n\n      mpirun -p 4 ~/MicroSim/bin/"+ Model_code+" "  +self.infile.text()+" "+self.filling.text()+" "+self.output.text()
     
 
     elif self.radio_KKS2.isChecked():
 
         Model_Folder= "KKS_OpenCl"
         Model_code ="microsim_kks_opencl"
-        runcmdhelp = "This action will execute the following command.\n\n\n     1) Solver compilation\n\n       cd ~/MicroSim/"+Model_Folder+"/  \n \n      python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + "\n\n      make clean\n\n      make\n\n\n     2) Solver execution\n\n      cp "+ Model_code+" ~/MicroSim/bin/\n\n      cd " + self.runDir + "\n\n      ~/MicroSim/bin/"+ Model_code+" "  +self.infile.text()+" "+self.filling.text()+" "+self.output.text()
+        runcmdhelp = "This action will execute the following command:\n\n\n     1) Solver compilation\n\n       cd MicroSim/"+Model_Folder+"/  \n \n      python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + "\n\n      make clean\n\n      make\n\n\n     2) Solver execution\n\n      cp "+ Model_code+" ~/MicroSim/bin/\n\n      cd " + self.runDir + "\n\n      ~/MicroSim/bin/"+ Model_code+" "  +self.infile.text()+" "+self.filling.text()+" "+self.output.text()
 
     elif self.radio_CH.isChecked():
         Model_Folder = "Cahn_Hilliard_FFT_2D"
         Model_code = "microsim_ch_fft"
-        runcmdhelp = "This action will execute the following command.\n\n\n     1) Solver compilation\n\n       cd ~/MicroSim/"+Model_Folder+"/  \n \n      python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + "\n\n      make clean\n\n      make\n\n\n     2) Solver execution\n\n      cp "+ Model_code+" ~/MicroSim/bin/\n\n      cd " + self.runDir + "\n\n      ~/MicroSim/bin/"+ Model_code+" "  +self.infile.text()+" "+self.filling.text()+" "+self.output.text()
+        runcmdhelp = "This action will execute the following command:\n\n\n     1) Solver compilation\n\n       cd MicroSim/"+Model_Folder+"/  \n \n      python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + "\n\n      make clean\n\n      make\n\n\n     2) Solver execution\n\n      cp "+ Model_code+" ~/MicroSim/bin/\n\n      cd " + self.runDir + "\n\n      ~/MicroSim/bin/"+ Model_code+" "  +self.infile.text()+" "+self.filling.text()+" "+self.output.text()
 
     #runcmdhelp = "This action will execute the following command.\n\n\n     1) Solver compilation\n\n       cd ~/MicroSim/"+Model_Folder+"/  \n \n      python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + "\n\n      make clean\n\n      make\n\n\n     2) Solver execution\n\n      cp "+ Model_code+" ~/MicroSim/bin/\n\n      cd " + self.runDir + "\n\n      mpirun.mpich -np 4 ~/MicroSim/bin/"+ Model_code+" "  +self.infile.text()+" "+self.filling.text()+" "+self.output.text() + " 2 2"
 
@@ -294,7 +294,7 @@ def generateJobscript(self):
     
     elif self.radio_of.isChecked():
             
-        commandLine ="cd " + self.runDir + "; cd ../PF* ; wclean; wmake"
+        commandLine ="source /home/tanmay/OpenFOAM-in-Box-20.09v2-22-g178c07ee/OpenFOAM-dev/etc/bashrc; cd " + self.runDir + "; cd ../PF* ; wclean; wmake"
         
         os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
         
