@@ -13553,9 +13553,9 @@ border :1px solid rgb(192, 191, 188);
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
-             <width>228</width>
-             <height>1378</height>
+             <y>-360</y>
+             <width>251</width>
+             <height>1416</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -14109,6 +14109,38 @@ background-color: rgba(114, 159, 207,80);
              </widget>
             </item>
             <item>
+             <widget class="QPushButton" name="triple_pointbtn_3">
+              <property name="styleSheet">
+               <string notr="true">#triple_pointbtn_3{
+border:none;
+text-align:left;
+padding-left:10px;
+}
+
+#triple_pointbtn_3::hover{
+background-color: rgba(114, 159, 207,80);
+}
+
+#triple_pointbtn_3::pressed{
+	background-color: rgb(238, 238, 236);
+}</string>
+              </property>
+              <property name="text">
+               <string> Triple Point (3D)           </string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>img/triplePoint.png</normaloff>img/triplePoint.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>31</width>
+                <height>31</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QPushButton" name="quad_pointbtn">
               <property name="styleSheet">
                <string notr="true">#quad_pointbtn{
@@ -14126,7 +14158,7 @@ background-color: rgba(114, 159, 207,80);
 }</string>
               </property>
               <property name="text">
-               <string>Quadruple Point           </string>
+               <string>Quadruple Point (3D)          </string>
               </property>
               <property name="icon">
                <iconset>
@@ -14814,6 +14846,44 @@ border : 1px solid rgb(192, 191, 188);
              </widget>
             </item>
            </layout>
+           <zorder>pushButton</zorder>
+           <zorder>pptarea</zorder>
+           <zorder>pptsize</zorder>
+           <zorder>pptcount</zorder>
+           <zorder>pushButton_2</zorder>
+           <zorder>fVelocitybtn</zorder>
+           <zorder>velocity_OverLine</zorder>
+           <zorder>widget_velocity_over_line</zorder>
+           <zorder>pushButton_3</zorder>
+           <zorder>tip_radiusbtn</zorder>
+           <zorder>pushButton_5</zorder>
+           <zorder>front_undercoolbtn</zorder>
+           <zorder>pushButton_7</zorder>
+           <zorder>triple_pointbtn</zorder>
+           <zorder>quad_pointbtn</zorder>
+           <zorder>pushButton_6</zorder>
+           <zorder>contourPlotbtn</zorder>
+           <zorder>widget_contour</zorder>
+           <zorder>pushButton_8</zorder>
+           <zorder>shiftPlotbtn</zorder>
+           <zorder>pushButton_4</zorder>
+           <zorder>pushButton_11</zorder>
+           <zorder>pushButton_12</zorder>
+           <zorder>phase_frac_btn</zorder>
+           <zorder>pushButton_13</zorder>
+           <zorder>total_vol_btn</zorder>
+           <zorder>pushButton_10</zorder>
+           <zorder>surfaceAreabtn</zorder>
+           <zorder>pushButton_14</zorder>
+           <zorder>pushButton_16</zorder>
+           <zorder>pushButton_18</zorder>
+           <zorder>pushButton_17</zorder>
+           <zorder>pushButton_19</zorder>
+           <zorder>two_Point_correlationbtn</zorder>
+           <zorder>principalComponentbtn</zorder>
+           <zorder>widget_PC</zorder>
+           <zorder>pushButton_9</zorder>
+           <zorder>triple_pointbtn_3</zorder>
           </widget>
          </widget>
         </item>
@@ -16049,7 +16119,7 @@ color:white;
        </font>
       </property>
       <property name="text">
-       <string>Triple Point Table</string>
+       <string>Quadruple Point 3D Table</string>
       </property>
      </widget>
      <widget class="QPushButton" name="quad_point_save">
@@ -16069,6 +16139,84 @@ color:white;
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="triple_point_widget_3" native="true">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>70</y>
+       <width>350</width>
+       <height>450</height>
+      </rect>
+     </property>
+     <widget class="QTableWidget" name="table_triplePoint_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>331</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(238, 238, 236);
+</string>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>146</number>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>Triple Point</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Coordinates</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QLabel" name="label_187">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>10</y>
+        <width>151</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>13</pointsize>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Triple Point 3D Table</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="triple_point_save_3">
+      <property name="geometry">
+       <rect>
+        <x>248</x>
+        <y>410</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(186, 189, 182);</string>
+      </property>
+      <property name="text">
+       <string>Save</string>
+      </property>
+     </widget>
+    </widget>
+    <zorder>triple_point_widget_3</zorder>
     <zorder>widget_12</zorder>
     <zorder>SimulationDetail</zorder>
     <zorder>pptRadius</zorder>
@@ -18321,9 +18469,9 @@ background-color: rgb(164, 0, 0);
   <zorder>Fifth_widget</zorder>
   <zorder>Qbox</zorder>
   <zorder>Sixth_widget</zorder>
-  <zorder>jobscriptFrame</zorder>
   <zorder>Seven_widget</zorder>
   <zorder>StartFrame</zorder>
+  <zorder>jobscriptFrame</zorder>
   <zorder>postProcessingScreen</zorder>
  </widget>
  <resources/>

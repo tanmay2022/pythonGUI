@@ -257,8 +257,6 @@ class StartScreen(QDialog):
         self.tip_radiusbtn.clicked.connect(self.tip_radiusbtnClicked)
         self.front_undercoolbtn.clicked.connect(self.front_undercoolbtnClicked)
         self.triple_pointbtn.clicked.connect(self.triple_pointbtnClicked)
-        #self.triple_pointbtn.clicked.connect(self.triple_pointbtnClicked)
-        #self.triple_pointbtn.clicked.connect(self.triple_pointbtnClicked)
         self.contourPlotbtn.clicked.connect(self.contourPlotbtnClicked)
         self.plotContour.clicked.connect(self.plotContourClicked)
         self.shiftPlotbtn.clicked.connect(self.shiftPlotbtnClicked)
@@ -7561,7 +7559,7 @@ class StartScreen(QDialog):
         
 
         #MODEL SPECIFIC PARAMETER
-        if self.radio_GP.isChecked():
+        if self.radio_GP.isChecked() or self.radio_of.isChecked() or self.radio_amrex.isChecked():
 
             if self.saveGPChack():
                 f.write("##Model-specific parameters: Grand-potential model\n")
