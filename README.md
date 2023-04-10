@@ -1,6 +1,6 @@
 ### How to use?
 
-* This depends on gnome-terminal. So, make sure you have it installed from the package repository of your linux distribution.
+* This script depends on gnome-terminal. So, make sure you have it installed from the package repository of your linux distribution.
 
 * You can use a package manager like Miniconda or Anaconda to avoid issues with system python. Miniconda is enough for this specific purpose.
 

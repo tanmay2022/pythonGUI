@@ -7597,8 +7597,8 @@ class StartScreen(QDialog):
                         "Amp_Noise_Phase = " + self.ampNoiseGP.text()+";\n"
                         "Equilibrium_temperature = " + self.equTGP.text()+";\n"
                         "Filling_temperature = " + self.fillingTGP.text()+";\n"
-                        "Tempgrady = {" + self.tempgradyGP.text()+"};\n")
-        
+                        "Tempgrady = {" + self.tempgradyGP.text()+"};\n"
+                        "Rotation_matrix = {" +  self.tableWidgetGP.item(i,0).text() + ","+ self.tableWidgetGP.item(i,1).text() + "," + self.tableWidgetGP.item(i,6).text() + "};\n")        
                 
             else:
                 self.finish_error.setText("Fill All required Model Specific Parameter")
@@ -7811,7 +7811,7 @@ class StartScreen(QDialog):
                 elif self.radio_KKS2.isChecked() and self.FanisotropyKKS2.text() == "0":
                     pass
                 
-                else:
+                elif self.radio_KKR.isChecked() or self.radio_KKS2.isChecked() or self.radio_CH.isChecked():
                     if self.tableWidgetGP.item(i,6) is None or self.tableWidgetGP.item(i,6).text() == '':
                         self.finish_error.setText("Please fill All values of Rotation matrix")
                         return False
@@ -7855,7 +7855,7 @@ class StartScreen(QDialog):
                 elif self.radio_KKS2.isChecked() and self.FanisotropyKKS2.text() == "0":
                     pass
                 
-                else:
+                elif self.radio_KKR.isChecked() or self.radio_KKS2.isChecked() or self.radio_CH.isChecked():
                     if self.tableWidgetGP.item(i,6) is None or self.tableWidgetGP.item(i,6).text() == '':
                         self.finish_error.setText("Please fill All values of Rotation matrix")
                         return False
@@ -7895,7 +7895,7 @@ class StartScreen(QDialog):
                 elif self.radio_KKS2.isChecked() and self.FanisotropyKKS2.text() == "0":
                     pass
                 
-                else:
+                elif self.radio_KKR.isChecked() or self.radio_KKS2.isChecked() or self.radio_CH.isChecked():
                     if self.tableWidgetGP.item(i,6) is None or self.tableWidgetGP.item(i,6).text() == '':
                         self.finish_error.setText("Please fill All values of Rotation matrix")
                         return False
@@ -7927,7 +7927,7 @@ class StartScreen(QDialog):
                 elif self.radio_KKS2.isChecked() and self.FanisotropyKKS2.text() == "0":
                     pass
                 
-                else:
+                elif self.radio_KKR.isChecked() or self.radio_KKS2.isChecked() or self.radio_CH.isChecked():
                     if self.tableWidgetGP.item(i,6) is None or self.tableWidgetGP.item(i,6).text() == '':
                         self.finish_error.setText("Please fill All values of Rotation matrix")
                         return False
@@ -9115,7 +9115,7 @@ class StartScreen(QDialog):
             self.TauKKS.setText(entryvalue)
             self.kksFlag[34] = 1
             
-        elif entryname == "Epsilon":
+        elif entryname == "epsilon":
             self.EpsilonKKS.setText(entryvalue)
             self.kksFlag[35] = 1
 

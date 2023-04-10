@@ -201,36 +201,40 @@ def paraviewFunc(self):
         self.paraviewError.show()
         
 def SolverExecute(self):
+    commandLine ="mkdir -p ~/MicroSim/bin"
+        
+    os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
+
     if self.radio_GP.isChecked():
             
-        commandLine ="cd ~/MicroSim/Grand_potential_Finite_difference_2D_MPI/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_gp ~/MicroSim/bin/;cd " + self.runDir + ";mpirun.mpich -np 4 ~/MicroSim/bin/microsim_gp "  +self.infile.text()+" "+self.filling.text()+" "+self.output.text() + " 2 2"
+        commandLine ="cd Grand_potential_Finite_difference_2D_MPI/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_gp ~/MicroSim/bin/;cd " + self.runDir + ";mpirun.mpich -np 4 ~/MicroSim/bin/microsim_gp "  +self.infile.text()+" "+self.filling.text()+" "+self.output.text() + " 2 2"
         
         os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
 
     elif self.radio_of.isChecked():
             
-        commandLine ="source /home/tanmay/OpenFOAM-in-Box-20.09v2-22-g178c07ee/OpenFOAM-dev/etc/bashrc; cd " + self.runDir + "; cd ../PF* ; wclean; wmake; cd " + self.runDir + " ; ./Allclean; ./Allrun "
+        commandLine ="cd " + self.runDir + "; cd ../PF* ; wclean; wmake; cd " + self.runDir + " ; ./Allclean; ./Allrun "
         
         os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
 
     elif self.radio_amrex.isChecked():
             
-        commandLine ="cd ~/MicroSim/Grand_potential_AMReX/Exec; make clean; make;  g++ -o Replace Replace.cpp; ./Replace; cp main2d.gnu.MPI.ex ~/MicroSim/bin/;cd " + self.runDir + ";mpirun -np 4 ~/MicroSim/bin/main2d.gnu.MPI.ex input2.in"
+        commandLine ="cd Grand_potential_AMReX/Exec; make clean; make;  g++ -o Replace Replace.cpp; ./Replace; cp main2d.gnu.MPI.ex ~/MicroSim/bin/;cd " + self.runDir + ";mpirun -np 2  ~/MicroSim/bin/main2d.gnu.MPI.ex input2.in"
         
         os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
     
     elif self.radio_KKR.isChecked():
-        commandLine ="cd ~/MicroSim/KKS_CuFFT/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_kks_cufft ~/MicroSim/bin/;cd " + self.runDir + ";mpirun -n 4 ~/MicroSim/bin/microsim_kks_cufft "  +self.infile.text()+" "+self.filling.text()+" "+self.output.text()
+        commandLine ="cd KKS_CuFFT/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_kks_cufft ~/MicroSim/bin/;cd " + self.runDir + ";mpirun -n 4 ~/MicroSim/bin/microsim_kks_cufft "  +self.infile.text()+" "+self.filling.text()+" "+self.output.text()
         
         os.system("gnome-terminal -e 'bash -c \""+commandLine+";bash\"'")
 
     elif self.radio_KKS2.isChecked():
-        commandLine ="cd ~/MicroSim/KKS_OpenCl/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_kks_opencl ~/MicroSim/bin/;cd " + self.runDir + ";~/MicroSim/bin/microsim_kks_opencl "  +self.infile.text()+" "+self.filling.text()+" "+self.output.text()
+        commandLine ="cd KKS_OpenCl/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_kks_opencl ~/MicroSim/bin/;cd " + self.runDir + ";~/MicroSim/bin/microsim_kks_opencl "  +self.infile.text()+" "+self.filling.text()+" "+self.output.text()
         
         os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
 
     elif self.radio_CH.isChecked():
-        commandLine ="cd ~/MicroSim/Cahn_Hilliard_FFT_2D/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_ch_fft ~/MicroSim/bin/;cd " + self.runDir + ";~/MicroSim/bin/microsim_ch_fft "  +self.infile.text()+" "+self.filling.text()+" "+self.output.text()
+        commandLine ="cd Cahn_Hilliard_FFT_2D/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_ch_fft ~/MicroSim/bin/;cd " + self.runDir + ";~/MicroSim/bin/microsim_ch_fft "  +self.infile.text()+" "+self.filling.text()+" "+self.output.text()
         
         os.system("gnome-terminal -e 'bash -c \""+commandLine+";bash\"'")
 
@@ -288,33 +292,33 @@ def generateJobscript(self):
 
     if self.radio_GP.isChecked():
             
-        commandLine ="cd ~/MicroSim/Grand_potential_Finite_difference_2D_MPI/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_gp ~/MicroSim/bin/;cp microsim_gp "+ self.runDir +"/JOB_FILE/;cp reconstruct "+ self.runDir +"/JOB_FILE/;cp write_xdmf "+ self.runDir +"/JOB_FILE/"
+        commandLine ="cd Grand_potential_Finite_difference_2D_MPI/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_gp ~/MicroSim/bin/;cp microsim_gp "+ self.runDir +"/JOB_FILE/;cp reconstruct "+ self.runDir +"/JOB_FILE/;cp write_xdmf "+ self.runDir +"/JOB_FILE/"
         
         os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
     
     elif self.radio_of.isChecked():
             
-        commandLine ="source /home/tanmay/OpenFOAM-in-Box-20.09v2-22-g178c07ee/OpenFOAM-dev/etc/bashrc; cd " + self.runDir + "; cd ../PF* ; wclean; wmake"
+        commandLine ="cd " + self.runDir + "; cd ../PF* ; wclean; wmake"
         
         os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
         
     elif self.radio_amrex.isChecked():
             
-        commandLine ="cd ~/MicroSim/Grand_potential_AMReX/Exec; make clean; make;  g++ -o Replace Replace.cpp; ./Replace; cp main2d.gnu.MPI.ex ~/MicroSim/bin/;cp main2d.gnu.MPI.ex "+ self.runDir +"/JOB_FILE/;cp input2.in "+ self.runDir +"/JOB_FILE/"
+        commandLine ="cd Grand_potential_AMReX/Exec; make clean; make;  g++ -o Replace Replace.cpp; ./Replace; cp main2d.gnu.MPI.ex ~/MicroSim/bin/;cp main2d.gnu.MPI.ex "+ self.runDir +"/JOB_FILE/;cp input2.in "+ self.runDir +"/JOB_FILE/"
         
         os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
     
     elif self.radio_KKR.isChecked():
-        commandLine ="cd ~/MicroSim/KKS_CuFFT/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_kks_cufft ~/MicroSim/bin/;cp microsim_kks_cufft "+ self.runDir +"/JOB_FILE/;cp reconstruct "+ self.runDir +"/JOB_FILE/;cp write_xdmf "+ self.runDir +"/JOB_FILE/"
+        commandLine ="cd KKS_CuFFT/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_kks_cufft ~/MicroSim/bin/;cp microsim_kks_cufft "+ self.runDir +"/JOB_FILE/;cp reconstruct "+ self.runDir +"/JOB_FILE/;cp write_xdmf "+ self.runDir +"/JOB_FILE/"
         
         os.system("gnome-terminal -e 'bash -c \""+commandLine+";bash\"'")
 
     elif self.radio_KKS2.isChecked():
-        commandLine ="cd ~/MicroSim/KKS_OpenCl/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_kks_opencl ~/MicroSim/bin/;cp microsim_kks_opencl "+ self.runDir +"/JOB_FILE/;cp reconstruct "+ self.runDir +"/JOB_FILE/;cp write_xdmf "+ self.runDir +"/JOB_FILE/"
+        commandLine ="cd KKS_OpenCl/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_kks_opencl ~/MicroSim/bin/;cp microsim_kks_opencl "+ self.runDir +"/JOB_FILE/;cp reconstruct "+ self.runDir +"/JOB_FILE/;cp write_xdmf "+ self.runDir +"/JOB_FILE/"
         
         os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
 
     elif self.radio_CH.isChecked():
-        commandLine ="cd ~/MicroSim/Cahn_Hilliard_FFT_2D/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_ch_fft ~/MicroSim/bin/;cp microsim_ch_fft "+ self.runDir +"/JOB_FILE/;cp reconstruct "+ self.runDir +"/JOB_FILE/;cp write_xdmf "+ self.runDir +"/JOB_FILE/"
+        commandLine ="cd Cahn_Hilliard_FFT_2D/; python3 GEdata_writer.py " +self.runDir +"/"+self.infile.text() + " ;make clean;make; cp microsim_ch_fft ~/MicroSim/bin/;cp microsim_ch_fft "+ self.runDir +"/JOB_FILE/;cp reconstruct "+ self.runDir +"/JOB_FILE/;cp write_xdmf "+ self.runDir +"/JOB_FILE/"
         
         os.system("gnome-terminal -e 'bash -c \""+commandLine+";bash\"'")
