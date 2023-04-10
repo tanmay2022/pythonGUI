@@ -1,5 +1,7 @@
 ### How to use?
 
+* This depends on gnome-terminal. So, make sure you have it installed from the package repository of your linux distribution.
+
 * You can use a package manager like Miniconda or Anaconda to avoid issues with system python. Miniconda is enough for this specific purpose.
 
 * Install Miniconda package manager from https://repo.anaconda.com/miniconda/Miniconda3-py310_23.1.0-1-Linux-x86_64.sh
