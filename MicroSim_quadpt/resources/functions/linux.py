@@ -219,7 +219,7 @@ def SolverExecute(self):
 
     elif self.radio_amrex.isChecked():
             
-        commandLine ="cd Grand_potential_AMReX/Exec; make clean; make;  g++ -o Replace Replace.cpp; ./Replace; cp main2d.gnu.MPI.ex ~/MicroSim/bin/;cd " + self.runDir + ";mpirun -np 2  ~/MicroSim/bin/main2d.gnu.MPI.ex input2.in"
+        commandLine ="cd Grand_potential_AMReX/Exec; make clean; make;  g++ -o Replace Replace.cpp; ./Replace "  +self.infile.text()+" "+self.filling.text()+"; cp main2d.gnu.MPI.ex ~/MicroSim/bin/;cd " + self.runDir + ";mpirun -np 2  ~/MicroSim/bin/main2d.gnu.MPI.ex input2.in"
         
         os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
     
@@ -258,7 +258,7 @@ def SolverExecuteHelp(self):
 
         Model_Folder= "Grand_potential_AMReX"
         Model_code ="main2d.gnu.MPI.ex"
-        runcmdhelp = "This action will execute the following command:\n\n\n     1) Solver compilation\n\n       cd MicroSim/"+Model_Folder+"/  \n \n            make clean\n\n      make\n      g++ -o Replace Replace.cpp\n      ./Replace\n\n\n     2) Solver execution\n\n      cp "+ Model_code+" ~/MicroSim/bin/\n\n      cd " + self.runDir + "\n\n      mpirun -np 4 ~/MicroSim/bin/main2d.gnu.MPI.ex input2.in"
+        runcmdhelp = "This action will execute the following command:\n\n\n     1) Solver compilation\n\n       cd MicroSim/"+Model_Folder+"/  \n \n            make clean\n\n      make\n      g++ -o Replace Replace.cpp\n      ./Replace "  +self.infile.text()+" "+self.filling.text()+" \n\n\n     2) Solver execution\n\n      cp "+ Model_code+" ~/MicroSim/bin/\n\n      cd " + self.runDir + "\n\n      mpirun -np 4 ~/MicroSim/bin/main2d.gnu.MPI.ex input2.in"
     
     elif self.radio_KKR.isChecked():
 
@@ -304,7 +304,7 @@ def generateJobscript(self):
         
     elif self.radio_amrex.isChecked():
             
-        commandLine ="cd Grand_potential_AMReX/Exec; make clean; make;  g++ -o Replace Replace.cpp; ./Replace; cp main2d.gnu.MPI.ex ~/MicroSim/bin/;cp main2d.gnu.MPI.ex "+ self.runDir +"/JOB_FILE/;cp input2.in "+ self.runDir +"/JOB_FILE/"
+        commandLine ="cd Grand_potential_AMReX/Exec; make clean; make;  g++ -o Replace Replace.cpp; ./Replace "  +self.infile.text()+" "+self.filling.text()+"; cp main2d.gnu.MPI.ex ~/MicroSim/bin/;cp main2d.gnu.MPI.ex "+ self.runDir +"/JOB_FILE/;cp input2.in "+ self.runDir +"/JOB_FILE/"
         
         os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
     

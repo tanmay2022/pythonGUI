@@ -7919,21 +7919,21 @@ class StartScreen(QDialog):
                 elif self.tableWidgetGP.item(i,3).text() !="-":
                     f.write("cfill = {" +  self.tableWidgetGP.item(i,0).text() + ","+ self.tableWidgetGP.item(i,1).text() + "," + self.tableWidgetGP.item(i,3).text() + "};\n")
 
-            if self.radio_amrex.isChecked():
-                for i in range(NoP*NoP):                
-                    if self.tableWidgetGP.item(i,5) is None or self.tableWidgetGP.item(i,5).text() == '':
-                        self.finish_error.setText("Please fill All values of Cguess")
-                        return False
-                    elif self.tableWidgetGP.item(i,5).text() !="-":
-                        f.write("c_guess = {" +  self.tableWidgetGP.item(i,0).text() + ","+ self.tableWidgetGP.item(i,1).text() + "," + self.tableWidgetGP.item(i,5).text() + "};\n")
-                for i in range(NoP*NoP):
+#            if self.radio_amrex.isChecked():
+#                for i in range(NoP*NoP):                
+#                    if self.tableWidgetGP.item(i,5) is None or self.tableWidgetGP.item(i,5).text() == '':
+#                        self.finish_error.setText("Please fill All values of Cguess")
+#                        return False
+#                    elif self.tableWidgetGP.item(i,5).text() !="-":
+#                        f.write("c_guess = {" +  self.tableWidgetGP.item(i,0).text() + ","+ self.tableWidgetGP.item(i,1).text() + "," + self.tableWidgetGP.item(i,5).text() + "};\n")
+#                for i in range(NoP*NoP):
                 
-                    if self.tableWidgetGP.item(i,4) is None or self.tableWidgetGP.item(i,4).text() == '':
-                        self.finish_error.setText("Please fill All values of Slope")
-                        return False
+#                    if self.tableWidgetGP.item(i,4) is None or self.tableWidgetGP.item(i,4).text() == '':
+#                        self.finish_error.setText("Please fill All values of Slope")
+#                        return False
                 
-                    elif self.tableWidgetGP.item(i,4).text() !="-":
-                        f.write("slopes = {" +  self.tableWidgetGP.item(i,0).text() + ","+ self.tableWidgetGP.item(i,1).text() + "," + self.tableWidgetGP.item(i,4).text() + "};\n")
+#                    elif self.tableWidgetGP.item(i,4).text() !="-":
+#                        f.write("slopes = {" +  self.tableWidgetGP.item(i,0).text() + ","+ self.tableWidgetGP.item(i,1).text() + "," + self.tableWidgetGP.item(i,4).text() + "};\n")
             
             for i in range(NoP*NoP):
                 if self.radio_GP.isChecked() and self.FanisotropyGP.text() == "0":
