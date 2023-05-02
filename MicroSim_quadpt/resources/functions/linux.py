@@ -25,7 +25,7 @@ def H5toVTK_Func(self):
             return False
             
         
-        h5toxmf_cmd = "cd " +h5_outhead + "; cd ..;" + "cp ~/MicroSim/Grand_potential_Finite_difference_2D_MPI/write_xdmf write_xdmf ; ./write_xdmf " + self.h5tovtk_infileLoc.text() + " "+ h5_outputfilename[0] + " " +  self.h5tovtk_sTime.text() + " "+ self.h5tovtk_eTime.text() 
+        h5toxmf_cmd = "cd " +h5_outhead + "; cd ..;" + "cp ../Grand_potential_Finite_difference_2D_MPI/write_xdmf write_xdmf ; ./write_xdmf " + self.h5tovtk_infileLoc.text() + " "+ h5_outputfilename[0] + " " +  self.h5tovtk_sTime.text() + " "+ self.h5tovtk_eTime.text() 
         
 
         os.system("gnome-terminal -e 'bash -c \""+h5toxmf_cmd+";\"'")
@@ -185,8 +185,8 @@ def paraviewFunc(self):
 
         paraviewcmd = "gnome-terminal -e 'bash -c \"/opt/paraviewopenfoam56/bin/paraview " +latest_file +"; bash\" '"
         os.system(paraviewcmd)
-    elif os.path.isfile(os.path.expanduser("~/MicroSim/.Paraview")): ## Checking for paraview saved path
-        readPath = open(os.path.expanduser('~/MicroSim/.Paraview'), "r")
+    elif os.path.isfile(os.path.expanduser("./.Paraview")): ## Checking for paraview saved path
+        readPath = open(os.path.expanduser('./.Paraview'), "r")
         readPathParaview = readPath.read().replace("\n", "")
         list_of_files = glob.glob(self.runDir + "/DATA/"+ self.output.text() +"*.*")
         if len(list_of_files) == 0:
