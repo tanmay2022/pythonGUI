@@ -213,7 +213,7 @@ def SolverExecute(self):
 
     elif self.radio_of.isChecked():
             
-        commandLine ="cd " + self.runDir + "; cd ../PF* ; wclean; wmake; cd " + self.runDir + " ; ./Allclean; ./Allrun "
+        commandLine ="cd " + self.runDir + "; cd ../../solver ; wclean; wmake; cd " + self.runDir + " ; ./Allclean; ./Allrun "
         
         os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
 
@@ -252,7 +252,7 @@ def SolverExecuteHelp(self):
 
         Model_Folder= "Grand_potential_OpenFOAM"
         Model_code ="Allrun"
-        runcmdhelp = "This action will execute the following command:\n\n\n     1) Solver compilation\n\n       cd MicroSim/"+Model_Folder+"\n\n      wclean\n\n      wmake\n\n\n     2) Solver execution\n\n      ./Allclean\n\n      ./Allrun"
+        runcmdhelp = "This action will execute the following command:\n\n\n     1) Solver compilation\n\n       cd MicroSim/"+Model_Folder+"/solver\n\n      wclean\n\n      wmake\n\n\n     2) Solver execution\n\n      ./Allclean\n\n      ./Allrun"
         
     elif self.radio_amrex.isChecked():
 
@@ -298,7 +298,7 @@ def generateJobscript(self):
     
     elif self.radio_of.isChecked():
             
-        commandLine ="cd " + self.runDir + "; cd ../PF* ; wclean; wmake"
+        commandLine ="cd " + self.runDir + "; cd ../../solver ; wclean; wmake"
         
         os.system("gnome-terminal -e 'bash -c  \""+commandLine+";bash\"'")
         

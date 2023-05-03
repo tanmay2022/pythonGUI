@@ -18,6 +18,8 @@
 
 > pip install pyqt5 scikit-image vtk tinydb sympy==1.8 pycalphad==0.9.2 pymks yt
 
+* To convert h5 to VTK, pvpython (or ParaView) must be added to the $PATH
+
 * Launch MicroSim:
 
 > python MicroSim.py
