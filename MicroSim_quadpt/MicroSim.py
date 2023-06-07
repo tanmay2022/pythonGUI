@@ -26,6 +26,8 @@ from resources.PP_tools.frontvelocity import *
 from resources.PP_tools.tipradius import *
 from resources.PP_tools.front_undercooling import *
 from resources.PP_tools.triple_point import *
+from resources.PP_tools.triple_point3 import *
+from resources.PP_tools.quad_point import *
 from resources.PP_tools.twoPointCorrelation import *
 from resources.PP_tools.shift import *
 from resources.PP_tools.contour import *
@@ -196,6 +198,8 @@ class StartScreen(QDialog):
         self.tip_radius_flag = 0
         self.front_undercool_flag = 0
         self.triple_point_flag = 0
+        self.triple_point3_flag = 0
+        self.quad_point_flag = 0
         self.pointCorrelation_flag = 0
         self.pricipalComponent_flag = 0
         self.contourPlot_flag = 0
@@ -257,6 +261,8 @@ class StartScreen(QDialog):
         self.tip_radiusbtn.clicked.connect(self.tip_radiusbtnClicked)
         self.front_undercoolbtn.clicked.connect(self.front_undercoolbtnClicked)
         self.triple_pointbtn.clicked.connect(self.triple_pointbtnClicked)
+        self.triple_pointbtn_3.clicked.connect(self.triple_pointbtnClicked_3)
+        self.quad_pointbtn.clicked.connect(self.quad_pointbtnClicked)
         self.contourPlotbtn.clicked.connect(self.contourPlotbtnClicked)
         self.plotContour.clicked.connect(self.plotContourClicked)
         self.shiftPlotbtn.clicked.connect(self.shiftPlotbtnClicked)
@@ -904,6 +910,13 @@ class StartScreen(QDialog):
         self.table_triplePoint.setGeometry( int((10*self.display_W)) , int((40*self.display_H)) , int((331)) , int((361*self.display_H))  )
         self.triple_point_save.setGeometry( int(248) , int((410*self.display_H)) , 91 , 31 )
 
+        self.triple_point_widget_3.setGeometry( int((420*self.display_W)) , int((70*self.display_H)) , int((350*self.display_W)) , int((450*self.display_H))  )
+        self.table_triplePoint_3.setGeometry( int((10*self.display_W)) , int((40*self.display_H)) , int((331)) , int((361*self.display_H))  )
+        self.triple_point_save_3.setGeometry( int(248) , int((410*self.display_H)) , 91 , 31 )
+
+        self.quad_point_widget.setGeometry( int((420*self.display_W)) , int((70*self.display_H)) , int((350*self.display_W)) , int((450*self.display_H))  )
+        self.table_quadPoint.setGeometry( int((10*self.display_W)) , int((40*self.display_H)) , int((331)) , int((361*self.display_H))  )
+        self.quad_point_save.setGeometry( int(248) , int((410*self.display_H)) , 91 , 31 )
         
 
         self.sideInfileBtn.setGeometry( int((60*self.display_W)) , int((600*self.display_H)) , int((91*self.display_W)) , int((35*self.display_H))  )
@@ -1190,6 +1203,14 @@ class StartScreen(QDialog):
             self.triple_pointbtn.setGeometry( 0 , int((474*0.75*self.display_H)) , int((206*self.display_W)) , int((41*0.75*self.display_H))   )
             self.triple_pointbtn.setIconSize( QSize(    int((25*0.9*self.display_H)) , int((25*0.9*self.display_H))  ))
             self.triple_pointbtn.setFont(QFont('Ubuntu', int((8*self.display_H))))
+
+            self.triple_pointbtn_3.setGeometry( 0 , int((474*0.75*self.display_H)) , int((206*self.display_W)) , int((41*0.75*self.display_H))   )
+            self.triple_pointbtn_3.setIconSize( QSize(    int((25*0.9*self.display_H)) , int((25*0.9*self.display_H))  ))
+            self.triple_pointbtn_3.setFont(QFont('Ubuntu', int((8*self.display_H))))
+
+            self.quad_pointbtn.setGeometry( 0 , int((474*0.75*self.display_H)) , int((206*self.display_W)) , int((41*0.75*self.display_H))   )
+            self.quad_pointbtn.setIconSize( QSize(    int((25*0.9*self.display_H)) , int((25*0.9*self.display_H))  ))
+            self.quad_pointbtn.setFont(QFont('Ubuntu', int((8*self.display_H))))
 
             self.phase_frac_btn.setGeometry( 0 , int((666*0.75*self.display_H)) , int((206*self.display_W)) , int((41*0.75*self.display_H))   )
             self.phase_frac_btn.setIconSize( QSize(    int((25*0.9*self.display_H)) , int((25*0.9*self.display_H))  ))
@@ -1527,6 +1548,14 @@ class StartScreen(QDialog):
             self.triple_pointbtn.setGeometry( 0 , int((474*self.display_H)) , int((206*self.display_W)) , int((41*self.display_H))   )
             self.triple_pointbtn.setIconSize( QSize(    int((25*self.display_H)) , int((25*self.display_H))  ))
             self.triple_pointbtn.setFont(QFont('Ubuntu', int((11*self.display_H))))
+
+            self.triple_pointbtn_3.setGeometry( 0 , int((474*self.display_H)) , int((206*self.display_W)) , int((41*self.display_H))   )
+            self.triple_pointbtn_3.setIconSize( QSize(    int((25*self.display_H)) , int((25*self.display_H))  ))
+            self.triple_pointbtn_3.setFont(QFont('Ubuntu', int((11*self.display_H))))
+
+            self.quad_pointbtn.setGeometry( 0 , int((474*self.display_H)) , int((206*self.display_W)) , int((41*self.display_H))   )
+            self.quad_pointbtn.setIconSize( QSize(    int((25*self.display_H)) , int((25*self.display_H))  ))
+            self.quad_pointbtn.setFont(QFont('Ubuntu', int((11*self.display_H))))
 
             self.phase_frac_btn.setGeometry( 0 , int((666*self.display_H)) , int((206*self.display_W)) , int((41*self.display_H))   )
             self.phase_frac_btn.setIconSize( QSize(    int((25*self.display_H)) , int((25*self.display_H))  ))
@@ -2005,6 +2034,8 @@ class StartScreen(QDialog):
         self.SimulationDetail.hide()
         self.pptPlot.hide()
         self.triple_point_widget.hide()
+        self.triple_point_widget_3.hide()
+        self.quad_point_widget.hide()
         self.pptRadius.hide()
         self.table_plot_widget.hide()
 
@@ -2020,6 +2051,8 @@ class StartScreen(QDialog):
         self.tip_radius_flag = 0
         self.front_undercool_flag = 0
         self.triple_point_flag = 0
+        self.triple_point3_flag = 0
+        self.quad_point_flag = 0
         self.pointCorrelation_flag = 0
         self.pricipalComponent_flag = 0
         self.contourPlot_flag = 0
@@ -2762,6 +2795,8 @@ class StartScreen(QDialog):
         self.SimulationDetail.hide()
         self.pptRadius.hide()
         self.triple_point_widget.hide()
+        self.triple_point_widget_3.hide()
+        self.quad_point_widget.hide()
         
         self.ppt_Count_Plot_flag = 0
         self.ppt_size_flag = 0
@@ -2772,6 +2807,8 @@ class StartScreen(QDialog):
         self.tip_radius_flag = 0
         self.front_undercool_flag = 0
         self.triple_point_flag = 0
+        self.triple_point3_flag = 0
+        self.quad_point_flag = 0
         self.contourPlot_flag = 0
 
         self.pptPlot.show()
@@ -3004,6 +3041,8 @@ class StartScreen(QDialog):
         self.SimulationDetail.hide()
         self.pptRadius.hide()
         self.triple_point_widget.hide()
+        self.triple_point_widget_3.hide()
+        self.quad_point_widget.hide()
 
         if self.data_3D_flag == 0:
             
@@ -3043,6 +3082,8 @@ class StartScreen(QDialog):
         self.tip_radius_flag = 0
         self.front_undercool_flag = 0
         self.triple_point_flag = 0
+        self.triple_point3_flag = 0
+        self.quad_point_flag = 0
         self.pointCorrelation_flag = 0
         self.pricipalComponent_flag = 0
         self.contourPlot_flag = 0
@@ -3068,6 +3109,8 @@ class StartScreen(QDialog):
         self.SimulationDetail.hide()
         self.pptPlot.hide()
         self.triple_point_widget.hide()
+        self.triple_point_widget_3.hide()
+        self.quad_point_widget.hide()
         
         self.table_ppt_size.setColumnHidden(1, True)
 
@@ -3109,6 +3152,8 @@ class StartScreen(QDialog):
         self.tip_radius_flag = 0
         self.front_undercool_flag = 0
         self.triple_point_flag = 0
+        self.triple_point3_flag = 0
+        self.quad_point_flag = 0
         self.pointCorrelation_flag = 0
         self.pricipalComponent_flag = 0
         self.contourPlot_flag = 0
@@ -3323,6 +3368,8 @@ class StartScreen(QDialog):
         self.SimulationDetail.hide()
         self.pptRadius.hide()
         self.triple_point_widget.hide()
+        self.triple_point_widget_3.hide()
+        self.quad_point_widget.hide()
         
         
         self.ppt_size_flag = 0
@@ -3334,6 +3381,8 @@ class StartScreen(QDialog):
         self.tip_radius_flag = 0
         self.front_undercool_flag = 0
         self.triple_point_flag = 0
+        self.triple_point3_flag = 0
+        self.quad_point_flag = 0
         self.pointCorrelation_flag = 0
         self.pricipalComponent_flag = 0
         self.contourPlot_flag = 0
@@ -3478,6 +3527,8 @@ class StartScreen(QDialog):
         self.SimulationDetail.hide()
         self.pptRadius.hide()
         self.triple_point_widget.hide()
+        self.triple_point_widget_3.hide()
+        self.quad_point_widget.hide()
         
         self.ppt_Count_Plot_flag = 0
         self.ppt_size_flag = 0
@@ -3488,6 +3539,8 @@ class StartScreen(QDialog):
         self.tip_radius_flag = 0
         self.front_undercool_flag = 0
         self.triple_point_flag = 0
+        self.triple_point3_flag = 0
+        self.quad_point_flag = 0
         self.pointCorrelation_flag = 0
         self.pricipalComponent_flag = 0
         self.contourPlot_flag = 0
@@ -3535,6 +3588,8 @@ class StartScreen(QDialog):
         self.SimulationDetail.hide()
         self.pptRadius.hide()
         self.triple_point_widget.hide()
+        self.triple_point_widget_3.hide()
+        self.quad_point_widget.hide()
         
         self.ppt_size_flag = 0
         self.ppt_Count_Plot_flag = 0
@@ -3545,6 +3600,8 @@ class StartScreen(QDialog):
         self.tip_radius_flag = 1
         self.front_undercool_flag = 0
         self.triple_point_flag = 0
+        self.triple_point3_flag = 0
+        self.quad_point_flag = 0
         self.pointCorrelation_flag = 0
         self.pricipalComponent_flag = 0
         self.contourPlot_flag = 0
@@ -3601,6 +3658,8 @@ class StartScreen(QDialog):
         self.SimulationDetail.hide()
         self.pptRadius.hide()
         self.triple_point_widget.hide()
+        self.triple_point_widget_3.hide()
+        self.quad_point_widget.hide()
         
         self.ppt_size_flag = 0
         self.ppt_Count_Plot_flag = 0
@@ -3611,6 +3670,8 @@ class StartScreen(QDialog):
         self.tip_radius_flag = 0
         self.front_undercool_flag = 1
         self.triple_point_flag = 0
+        self.triple_point3_flag = 0
+        self.quad_point_flag = 0
         self.pointCorrelation_flag = 0
         self.pricipalComponent_flag = 0
         self.contourPlot_flag = 0
@@ -3676,7 +3737,101 @@ class StartScreen(QDialog):
         for i in self.triple_point_value[k]:
             self.ax.scatter(i[1],i[0],marker='o')
         self.canvas.draw()
+
+
+    def triple_pointbtnClicked_3(self):
+
+        AllItems = [self.scalerValue.itemText(i) for i in range(self.scalerValue.count())]
+
+        if(self.dataset == "UNSTRUCTURED_GRID"):
+            grid_shape = [self.PP_dimX , self.PP_dimY, self.PP_dimZ]
+        else:
+            grid_shape = self.vtkData[0].GetDimensions()
+
+        self.triple_point_value_3= triple_point3( self.vtkData ,self.dataset,grid_shape, self.timeItretion,self.scalerValue.currentText())
+        
+        self.triple_point_widget.hide()
+        self.triple_point_widget_3.show()
+        self.quad_point_widget.hide()
+        self.SimulationDetail.hide()
+        self.pptRadius.hide()
+        
+        
+        self.ppt_size_flag = 0
+        self.ppt_Count_Plot_flag = 0
+        self.velocity_flag = 0
+        self.volume_SA_flag = 0
+        self.plot_over_line_flag = 0
+        self.velocity_over_line_flag = 0
+        self.tip_radius_flag = 0
+        self.front_undercool_flag = 0
+        self.triple_point_flag = 0
+        self.triple_point3_flag = 1
+        self.quad_point_flag = 0
+        self.pointCorrelation_flag = 0
+        self.pricipalComponent_flag = 0
+        self.contourPlot_flag = 0
+        
+        k = int(self.iteration_step.value())
+        self.table_triplePoint_3.setRowCount(len(self.triple_point_value_3[k]))
+        
+        for t in range(len(self.triple_point_value_3[k])):
+            self.table_triplePoint_3.setItem(t,0,QTableWidgetItem( str(t)))
+            self.table_triplePoint_3.setItem(t,1,QTableWidgetItem( str( self.triple_point_value_3[k][t]) ))
             
+        
+        
+        for i in self.triple_point_value_3[k]:
+            self.ax.scatter(i[1],i[0],marker='o')
+        self.canvas.draw()            
+
+
+    def quad_pointbtnClicked(self):
+
+        AllItems = [self.scalerValue.itemText(i) for i in range(self.scalerValue.count())]
+
+        if(self.dataset == "UNSTRUCTURED_GRID"):
+            grid_shape = [self.PP_dimX , self.PP_dimY, self.PP_dimZ]
+        else:
+            grid_shape = self.vtkData[0].GetDimensions()
+
+        self.quad_point_value= quad_point( self.vtkData ,self.dataset,grid_shape, self.timeItretion,self.scalerValue.currentText())
+        
+        self.triple_point_widget.hide()
+        self.triple_point_widget_3.hide()
+        self.quad_point_widget.show()
+        self.SimulationDetail.hide()
+        self.pptRadius.hide()
+        
+        
+        self.ppt_size_flag = 0
+        self.ppt_Count_Plot_flag = 0
+        self.velocity_flag = 0
+        self.volume_SA_flag = 0
+        self.plot_over_line_flag = 0
+        self.velocity_over_line_flag = 0
+        self.tip_radius_flag = 0
+        self.front_undercool_flag = 0
+        self.triple_point_flag = 0
+        self.triple_point3_flag = 0
+        self.quad_point_flag = 1
+        self.pointCorrelation_flag = 0
+        self.pricipalComponent_flag = 0
+        self.contourPlot_flag = 0
+        
+        k = int(self.iteration_step.value())
+        self.table_quadPoint.setRowCount(len(self.quad_point_value[k]))
+        
+        for t in range(len(self.quad_point_value[k])):
+            self.table_quadPoint.setItem(t,0,QTableWidgetItem( str(t)))
+            self.table_quadPoint.setItem(t,1,QTableWidgetItem( str( self.quad_point_value[k][t]) ))
+            
+        
+        
+        for i in self.quad_point_value[k]:
+            self.ax.scatter(i[1],i[0],marker='o')
+        self.canvas.draw()
+
 
     def contourPlotbtnClicked(self):
         self.widget_contour.setMinimumSize(0,140)
@@ -3713,6 +3868,8 @@ class StartScreen(QDialog):
         self.SimulationDetail.hide()
         self.pptRadius.hide()
         self.triple_point_widget.hide()
+        self.triple_point_widget_3.hide()
+        self.quad_point_widget.hide()
         
         self.ppt_size_flag = 0
         self.ppt_Count_Plot_flag = 0
@@ -3723,6 +3880,8 @@ class StartScreen(QDialog):
         self.tip_radius_flag = 0
         self.front_undercool_flag = 0
         self.triple_point_flag = 0
+        self.triple_point3_flag = 0
+        self.quad_point_flag = 0
         self.pointCorrelation_flag = 0
         self.pricipalComponent_flag = 0
         self.contourPlot_flag = 1
@@ -3773,6 +3932,8 @@ class StartScreen(QDialog):
         self.SimulationDetail.hide()
         self.pptRadius.hide()
         self.triple_point_widget.hide()
+        self.triple_point_widget_3.hide()
+        self.quad_point_widget.hide()
         
         self.ppt_size_flag = 0
         self.ppt_Count_Plot_flag = 0
@@ -3783,6 +3944,8 @@ class StartScreen(QDialog):
         self.tip_radius_flag = 0
         self.front_undercool_flag = 0
         self.triple_point_flag = 0
+        self.triple_point3_flag = 0
+        self.quad_point_flag = 0
         self.pointCorrelation_flag = 0
         self.pricipalComponent_flag = 0
         self.contourPlot_flag = 0
@@ -3830,6 +3993,8 @@ class StartScreen(QDialog):
         self.SimulationDetail.hide()
         self.pptRadius.hide()
         self.triple_point_widget.hide()
+        self.triple_point_widget_3.hide()
+        self.quad_point_widget.hide()
         
         self.ppt_size_flag = 0
         self.ppt_Count_Plot_flag = 0
@@ -3840,6 +4005,8 @@ class StartScreen(QDialog):
         self.tip_radius_flag = 0
         self.front_undercool_flag = 0
         self.triple_point_flag = 0
+        self.triple_point3_flag = 0
+        self.quad_point_flag = 0
         self.pointCorrelation_flag = 0
         self.pricipalComponent_flag = 0
         self.contourPlot_flag = 0
@@ -3890,6 +4057,8 @@ class StartScreen(QDialog):
         self.SimulationDetail.hide()
         self.pptRadius.hide()
         self.triple_point_widget.hide()
+        self.triple_point_widget_3.hide()
+        self.quad_point_widget.hide()
         
         self.ppt_size_flag = 0
         self.ppt_Count_Plot_flag = 0
@@ -3900,6 +4069,8 @@ class StartScreen(QDialog):
         self.tip_radius_flag = 0
         self.front_undercool_flag = 0
         self.triple_point_flag = 0
+        self.triple_point3_flag = 0
+        self.quad_point_flag = 0
         self.pointCorrelation_flag = 0
         self.pricipalComponent_flag = 0
         self.contourPlot_flag = 0
@@ -3947,6 +4118,8 @@ class StartScreen(QDialog):
         self.SimulationDetail.hide()
         self.pptRadius.hide()
         self.triple_point_widget.hide()
+        self.triple_point_widget_3.hide()
+        self.quad_point_widget.hide()
         
         self.ppt_size_flag = 0
         self.ppt_Count_Plot_flag = 0
@@ -3957,6 +4130,8 @@ class StartScreen(QDialog):
         self.tip_radius_flag = 0
         self.front_undercool_flag = 0
         self.triple_point_flag = 0
+        self.triple_point3_flag = 0
+        self.quad_point_flag = 0
         self.pointCorrelation_flag = 0
         self.pricipalComponent_flag = 0
         self.contourPlot_flag = 0
@@ -4006,6 +4181,8 @@ class StartScreen(QDialog):
         self.SimulationDetail.hide()
         self.pptRadius.hide()
         self.triple_point_widget.hide()
+        self.triple_point_widget_3.hide()
+        self.quad_point_widget.hide()
         
         self.ppt_size_flag = 0
         self.ppt_Count_Plot_flag = 0
@@ -4016,6 +4193,8 @@ class StartScreen(QDialog):
         self.tip_radius_flag = 0
         self.front_undercool_flag = 0
         self.triple_point_flag = 0
+        self.triple_point3_flag = 0
+        self.quad_point_flag = 0
         self.pointCorrelation_flag = 1
         self.pricipalComponent_flag = 0
         self.contourPlot_flag = 0
@@ -4070,6 +4249,8 @@ class StartScreen(QDialog):
         self.SimulationDetail.hide()
         self.pptRadius.hide()
         self.triple_point_widget.hide()
+        self.triple_point_widget_3.hide()
+        self.quad_point_widget.hide()
         
         self.ppt_size_flag = 0
         self.ppt_Count_Plot_flag = 0
@@ -4080,6 +4261,8 @@ class StartScreen(QDialog):
         self.tip_radius_flag = 0
         self.front_undercool_flag = 0
         self.triple_point_flag = 0
+        self.triple_point3_flag = 0
+        self.quad_point_flag = 0
         self.pointCorrelation_flag = 0
         self.pricipalComponent_flag = 1
         self.contourPlot_flag = 0
