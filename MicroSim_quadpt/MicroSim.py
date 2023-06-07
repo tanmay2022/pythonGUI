@@ -2411,6 +2411,34 @@ class StartScreen(QDialog):
                 self.ax.scatter(i[1],i[0],marker='o')
             self.canvas.draw()
 
+        elif self.triple_point3_flag ==1:
+            
+            k = int(self.iteration_step.value())
+            self.table_triplePoint_3.setRowCount(len(self.triple_point_value_3[k]))
+            
+            for t in range(len(self.triple_point_value_3[k])):
+                self.table_triplePoint_3.setItem(t,0,QTableWidgetItem( str(t)))
+                self.table_triplePoint_3.setItem(t,1,QTableWidgetItem( str( self.triple_point_value_3[k][t]) ))
+                
+            
+            for i in self.triple_point_value_3[self.iteration_step.value()]:
+                self.ax.scatter(i[1],i[0],marker='o')
+            self.canvas.draw()
+
+        elif self.quad_point_flag ==1:
+            
+            k = int(self.iteration_step.value())
+            self.table_quadPoint.setRowCount(len(self.quad_point_value[k]))
+            
+            for t in range(len(self.quad_point_value[k])):
+                self.table_quadPoint.setItem(t,0,QTableWidgetItem( str(t)))
+                self.table_quadPoint.setItem(t,1,QTableWidgetItem( str( self.quad_point_value[k][t]) ))
+                
+            
+            for i in self.quad_point_value[self.iteration_step.value()]:
+                self.ax.scatter(i[1],i[0],marker='o')
+            self.canvas.draw()
+
         elif self.contourPlot_flag == 1:
 
             self.pptPlot.show()
