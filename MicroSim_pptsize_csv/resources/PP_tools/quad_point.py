@@ -28,7 +28,7 @@ def quad_point(vtkData,dataset,infileDimension,timeItretion,Scalar_name):
             
         
         thisset = []
-        triple_point = []
+        #triple_point = []
         quad_point = []
         x_list = []
         y_list = []
@@ -47,12 +47,12 @@ def quad_point(vtkData,dataset,infileDimension,timeItretion,Scalar_name):
                     thisset.append(pf2[i][j][k])
                     thisset = set(thisset)
 
-                if len(thisset) >= 3:
-                    triple_point.append((i,j))
-                    x_list.append(i)
-                    y_list.append(j)
-                    z_list.append(j)
-                    overall_tp[t] = triple_point
+                #if len(thisset) >= 3:
+                    #triple_point.append((i,j))
+                    #x_list.append(i)
+                    #y_list.append(j)
+                    #z_list.append(j)
+                    #overall_tp[t] = triple_point
                 if len(thisset) >= 4:
                     quad_point.append((i,j))
                     x_list.append(i)
