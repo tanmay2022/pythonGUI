@@ -113,6 +113,7 @@ class StartScreen(QDialog):
         
         self.tip_radiusbtn.setIcon(QIcon('resources/img/tipradius.png'))
         self.pptplot_import.setIcon(QIcon('resources/img/down.png'))
+        self.pptsize_import.setIcon(QIcon('resources/img/down.png'))
         self.surfaceAreabtn.setIcon(QIcon('resources/img/particle.png'))
         self.total_vol_btn.setIcon(QIcon('resources/img/3dvolume.png'))
         self.phase_frac_btn.setIcon(QIcon('resources/img/Phasefrac.png'))
@@ -244,6 +245,7 @@ class StartScreen(QDialog):
         self.draw_Line.clicked.connect(self.draw_LineClicked)
         self.plot_over_lineBtn.clicked.connect(self.plot_over_lineClicked)
         self.pptplot_import.clicked.connect(self.pptplot_importClicked)
+        self.pptsize_import.clicked.connect(self.pptsize_importClicked)
         self.xyPLane.clicked.connect(self.xyPLaneClicked)
         self.yzPlane.clicked.connect(self.yzPlaneClicked)
         self.xzPlane.clicked.connect(self.xzPlaneClicked)
@@ -1613,6 +1615,7 @@ class StartScreen(QDialog):
         self.canvas_ppt.draw()
         
         self.pptplot_import.setGeometry(int((370*self.display_H)) , int((10*self.display_H)) , int((61*self.display_W)) , int((30*self.display_H))  )
+        self.pptsize_import.setGeometry(int((370*self.display_H)) , int((20*self.display_H)) , int((61*self.display_W)) , int((30*self.display_H))  )
         
         
         
@@ -2584,8 +2587,7 @@ class StartScreen(QDialog):
             elif self.pointCorrelation_flag ==1:
                 print(0)
             
-                
-            
+
         
     def fastNextClicked(self):
         self.iteration_step.setValue(len(self.timeItretion)-1)
@@ -3280,6 +3282,51 @@ class StartScreen(QDialog):
         self.canvas_table.draw()
             
             
+    def pptsize_importClicked(self):
+        options = QFileDialog.Options()
+        options |= QFileDialog.DontUseNativeDialog
+        fileName, _ = QFileDialog.getSaveFileName(self,"QFileDialog.getSaveFileName()","","CSV(*.csv)", options=options)
+
+        arr_area = np.empty(len(self.timeItretion))
+        arr_radius = np.empty(len(self.timeItretion))
+        arr_major_axis = np.empty(len(self.timeItretion))
+        arr_minor_axis = np.empty(len(self.timeItretion))
+        arr_AR = np.empty(len(self.timeItretion))
+        
+        
+        for k in range(len(self.timeItretion)):
+            arealist = self.ppt_area[k]
+            arr_area[k] = np.mean(arealist)
+       
+            radiuslist = self.ppt_radius[k]
+            arr_radius[k] = np.mean(radiuslist)
+       
+            major_axislist = self.ppt_major_axis[k]
+            arr_major_axis[k] = np.mean(major_axislist)
+            minor_axislist = self.ppt_minor_axis[k]
+            arr_minor_axis[k] = np.mean(minor_axislist)
+           
+            arr_AR[k] = arr_major_axis[k]/arr_minor_axis[k]
+        
+        if fileName != "":
+            fileName = fileName + ".csv"
+            f = open(fileName, "w")
+            
+            f.write( "Timesteps,area,radius,major-axis,minor-axis,AR \n" )
+            
+            for rowNumber in range(len(self.timeItretion)):
+              
+                f.write( str(self.timeItretion[rowNumber]) + "," + str(arr_area[rowNumber]) + "," + str(arr_radius[rowNumber]) + "," + str(arr_major_axis[rowNumber]) + "," + str(arr_minor_axis[rowNumber]) + "," + str(arr_AR[rowNumber]) )
+                   
+                f.write("\n")
+            f.close()
+            
+            Submitmsg = QMessageBox()
+            Submitmsg.setWindowTitle("File Created")
+            Submitmsg.setText("\n Sucessfully created csv file at :\n\n      "+fileName  )
+            Submitmsg.exec_()           
+            
+
     def table_closeClicked(self):
         self.table_plot_widget.hide()
         self.table_plot_widget.setGeometry(0,0,0,0)
