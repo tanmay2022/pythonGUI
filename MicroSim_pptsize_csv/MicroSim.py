@@ -3286,47 +3286,45 @@ class StartScreen(QDialog):
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
         fileName, _ = QFileDialog.getSaveFileName(self,"QFileDialog.getSaveFileName()","","CSV(*.csv)", options=options)
+
+        arr_area = np.empty(len(self.timeItretion))
+        arr_radius = np.empty(len(self.timeItretion))
+        arr_major_axis = np.empty(len(self.timeItretion))
+        arr_minor_axis = np.empty(len(self.timeItretion))
+        arr_AR = np.empty(len(self.timeItretion))
+        
+        
+        for k in range(len(self.timeItretion)):
+            arealist = self.ppt_area[k]
+            arr_area[k] = np.mean(arealist)
+       
+            radiuslist = self.ppt_radius[k]
+            arr_radius[k] = np.mean(radiuslist)
+       
+            major_axislist = self.ppt_major_axis[k]
+            arr_major_axis[k] = np.mean(major_axislist)
+            minor_axislist = self.ppt_minor_axis[k]
+            arr_minor_axis[k] = np.mean(minor_axislist)
+           
+            arr_AR[k] = arr_major_axis[k]/arr_minor_axis[k]
         
         if fileName != "":
             fileName = fileName + ".csv"
             f = open(fileName, "w")
             
-            if self.ppt_Count_Plot_flag == 1:
-                
-                f.write( "Timesteps , Ppt Count \n" )
+            f.write( "Timesteps,area,radius,major-axis,minor-axis,AR \n" )
             
-                for rowNumber in range(len(self.timeItretion)):
+            for rowNumber in range(len(self.timeItretion)):
               
-                    f.write( str(self.timeItretion[rowNumber]) + "," + str(self.ppt_count[rowNumber]) )
+                f.write( str(self.timeItretion[rowNumber]) + "," + str(arr_area[rowNumber]) + "," + str(arr_radius[rowNumber]) + "," + str(arr_major_axis[rowNumber]) + "," + str(arr_minor_axis[rowNumber]) + "," + str(arr_AR[rowNumber]) )
                    
-                    f.write("\n")
-                f.close()
-                
-                Submitmsg = QMessageBox()
-                Submitmsg.setWindowTitle("File Created")
-                Submitmsg.setText("\n Sucessfully created csv file at :\n\n      "+fileName  )
-                Submitmsg.exec_()
+                f.write("\n")
+            f.close()
             
-                return
-            
-                    
-            elif self.velocity_flag == 1:
-                
-                f.write( "Timesteps, Front Velocity \n" )
-            
-                for rowNumber in range(len(self.timeItretion)):
-              
-                    f.write( str(self.timeItretion[rowNumber]) + "," + str(self.arr_velocity[rowNumber]) )
-                   
-                    f.write("\n")
-                f.close()
-                
-                Submitmsg = QMessageBox()
-                Submitmsg.setWindowTitle("File Created")
-                Submitmsg.setText("\n Sucessfully created csv file at :\n\n      "+fileName  )
-                Submitmsg.exec_()
-                
-                return                
+            Submitmsg = QMessageBox()
+            Submitmsg.setWindowTitle("File Created")
+            Submitmsg.setText("\n Sucessfully created csv file at :\n\n      "+fileName  )
+            Submitmsg.exec_()           
             
 
     def table_closeClicked(self):
