@@ -15984,7 +15984,7 @@ color:white;
        <string>Iterations</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="ppt_size_import">
+     <widget class="QPushButton" name="pptsize_import">
       <property name="geometry">
        <rect>
         <x>370</x>

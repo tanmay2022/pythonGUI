@@ -46,3 +46,52 @@
             Submitmsg.setWindowTitle("File Created")
             Submitmsg.setText("\n Sucessfully created csv file at :\n\n      "+fileName  )
             Submitmsg.exec_()
+            
+            
+            
+            
+    def pptsize_importClicked(self):
+        options = QFileDialog.Options()
+        options |= QFileDialog.DontUseNativeDialog
+        fileName, _ = QFileDialog.getSaveFileName(self,"QFileDialog.getSaveFileName()","","CSV(*.csv)", options=options)
+        
+        if fileName != "":
+            fileName = fileName + ".csv"
+            f = open(fileName, "w")
+            
+            if self.ppt_Count_Plot_flag == 1:
+                
+                f.write( "Timesteps , Ppt Count \n" )
+            
+                for rowNumber in range(len(self.timeItretion)):
+              
+                    f.write( str(self.timeItretion[rowNumber]) + "," + str(self.ppt_count[rowNumber]) )
+                   
+                    f.write("\n")
+                f.close()
+                
+                Submitmsg = QMessageBox()
+                Submitmsg.setWindowTitle("File Created")
+                Submitmsg.setText("\n Sucessfully created csv file at :\n\n      "+fileName  )
+                Submitmsg.exec_()
+            
+                return
+            
+                    
+            elif self.velocity_flag == 1:
+                
+                f.write( "Timesteps, Front Velocity \n" )
+            
+                for rowNumber in range(len(self.timeItretion)):
+              
+                    f.write( str(self.timeItretion[rowNumber]) + "," + str(self.arr_velocity[rowNumber]) )
+                   
+                    f.write("\n")
+                f.close()
+                
+                Submitmsg = QMessageBox()
+                Submitmsg.setWindowTitle("File Created")
+                Submitmsg.setText("\n Sucessfully created csv file at :\n\n      "+fileName  )
+                Submitmsg.exec_()
+                
+                return    
