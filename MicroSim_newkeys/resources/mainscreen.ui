@@ -2582,7 +2582,7 @@ color: rgb(255, 255, 255);</string>
      <property name="geometry">
       <rect>
        <x>260</x>
-       <y>50</y>
+       <y>30</y>
        <width>331</width>
        <height>300</height>
       </rect>
@@ -2618,11 +2618,11 @@ border : 1px solid rgb(225, 225, 225);</string>
        <string>?</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="damping_2">
+     <widget class="QLineEdit" name="damping">
       <property name="geometry">
        <rect>
         <x>210</x>
-        <y>175</y>
+        <y>200</y>
         <width>41</width>
         <height>31</height>
        </rect>
@@ -2666,7 +2666,7 @@ border : 1px solid rgb(225, 225, 225);</string>
       <property name="geometry">
        <rect>
         <x>90</x>
-        <y>110</y>
+        <y>80</y>
         <width>131</width>
         <height>31</height>
        </rect>
@@ -2691,7 +2691,7 @@ border : 1px solid rgb(225, 225, 225);</string>
       <property name="geometry">
        <rect>
         <x>90</x>
-        <y>50</y>
+        <y>20</y>
         <width>151</width>
         <height>31</height>
        </rect>
@@ -2712,11 +2712,11 @@ border : 1px solid rgb(225, 225, 225);</string>
        <string>ELASTICITY  :</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="elasticity_2">
+     <widget class="QLineEdit" name="elasticity">
       <property name="geometry">
        <rect>
         <x>210</x>
-        <y>55</y>
+        <y>80</y>
         <width>41</width>
         <height>31</height>
        </rect>
@@ -2725,11 +2725,11 @@ border : 1px solid rgb(225, 225, 225);</string>
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="rho_2">
+     <widget class="QLineEdit" name="rho">
       <property name="geometry">
        <rect>
         <x>210</x>
-        <y>115</y>
+        <y>140</y>
         <width>41</width>
         <height>31</height>
        </rect>
@@ -2745,7 +2745,7 @@ border : 1px solid rgb(225, 225, 225);</string>
       <property name="geometry">
        <rect>
         <x>90</x>
-        <y>170</y>
+        <y>140</y>
         <width>155</width>
         <height>50</height>
        </rect>
@@ -2798,11 +2798,11 @@ border : 1px solid rgb(225, 225, 225);</string>
        <string>?</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="maxiter_2">
+     <widget class="QLineEdit" name="maxiter">
       <property name="geometry">
        <rect>
         <x>210</x>
-        <y>235</y>
+        <y>260</y>
         <width>41</width>
         <height>31</height>
        </rect>
@@ -2846,7 +2846,7 @@ border : 1px solid rgb(225, 225, 225);</string>
       <property name="geometry">
        <rect>
         <x>90</x>
-        <y>230</y>
+        <y>200</y>
         <width>151</width>
         <height>50</height>
        </rect>
