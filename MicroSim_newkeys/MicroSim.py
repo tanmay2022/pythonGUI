@@ -9297,22 +9297,22 @@ class StartScreen(QDialog):
 
         elif entryname == "ELASTICITY":
             self.elasticity.setText(entryvalue)
-            self.kksFlag[38] = 1
+            self.kksFlag[36] = 1
             return
 
         elif entryname == "rho":
             self.rho.setText(entryvalue)
-            self.kksFlag[39] = 1
+            self.kksFlag[37] = 1
             return
 
         elif entryname == "damping_factor":
             self.damping.setText(entryvalue)
-            self.kksFlag[40] = 1
+            self.kksFlag[38] = 1
             return
 
         elif entryname == "max_iterations":
             self.maxiter.setText(entryvalue)
-            self.kksFlag[41] = 1
+            self.kksFlag[39] = 1
             return
 
         elif entryname == "EIGEN_STRAIN":
@@ -9684,22 +9684,22 @@ class StartScreen(QDialog):
 
         elif entryname == "ELASTICITY":
             self.elasticity.setText(entryvalue)
-            self.kks2Flag[45] = 1
+            self.kks2Flag[44] = 1
             return
 
         elif entryname == "rho":
             self.rho.setText(entryvalue)
-            self.kks2Flag[46] = 1
+            self.kks2Flag[45] = 1
             return
 
         elif entryname == "damping_factor":
             self.damping.setText(entryvalue)
-            self.kks2Flag[47] = 1
+            self.kks2Flag[46] = 1
             return
 
         elif entryname == "max_iterations":
             self.maxiter.setText(entryvalue)
-            self.kks2Flag[48] = 1
+            self.kks2Flag[47] = 1
             return
 
 

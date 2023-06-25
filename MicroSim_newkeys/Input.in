@@ -1,0 +1,86 @@
+##Geometrical dimensions of the simulation domain
+DIMENSION = 3;
+MESH_X = 100;
+MESH_Y = 100;
+MESH_Z = 100;
+##Discretization, space and time
+DELTA_X = 4e-11;
+DELTA_Y = 4e-11;
+DELTA_Z = 4e-11;
+DELTA_t = 1.5e-9;
+##Number of phases and composition
+NUMPHASES = 2;
+NUMCOMPONENTS = 3;
+#Running and saving information
+NTIMESTEPS = 200000;
+NSMOOTH = 10;
+SAVET = 100;
+RESTART = 0;
+STARTTIME = 0;
+numworkers = 4;
+## Component and Phase names
+COMPONENTS = {Al,Mo,Ni};
+PHASES = {alpha,liquid};
+##Material properties
+GAMMA = {0.01};
+R = 8.314;
+V = 10e-6;
+GRAIN_GROWTH = 0;
+##Elasticity related parameters
+ELASTICITY = 1;
+rho = 10;
+damping_factor = 0.8;
+max_iterations = 5;
+DIFFUSIVITY = {1,0,1.0e-13,1.0e-13};
+DIFFUSIVITY = {1,1,1.0e-13,1.0e-13};
+EIGEN_STRAIN = {0,0.01,0.01,0.01,0.0,0.0,0.0};
+EIGEN_STRAIN = {1,0.0,0.0,0.0,0.0,0.0,0.0};
+VOIGT_ISOTROPIC = {0,166.83e9,115.5e9,77e9};
+VOIGT_ISOTROPIC = {1,166.83e9,115.5e9,77e9};
+##Boundary conditions
+BOUNDARY = {phi,3,3,3,3,0,0};
+BOUNDARY = {mu,3,3,3,3,0,0};
+BOUNDARY = {c,3,3,3,3,0,0};
+BOUNDARY = {T,3,3,3,3,0,0};
+BOUNDARY_VALUE = {phi,0,0,0,0,0,0};
+BOUNDARY_VALUE = {mu,0,0,0,0,0,0};
+BOUNDARY_VALUE = {c,0,0,0,0,0,0};
+BOUNDARY_VALUE = {T,0,0,0,0,0,0};
+##Model-specific parameters: Grand-potential model
+ISOTHERMAL = 1;
+BINARY = 0;
+TERNARY = 1;
+DILUTE = 0;
+T = 1100;
+WRITEFORMAT = ASCII;
+WRITEHDF5 = 0;
+TRACK_PROGRESS = 10;
+epsilon = 16e-11;
+tau = 1.31;
+Tau = {0.28};
+Function_anisotropy = 0;
+Anisotropy_type = 4;
+dab = {0.00};
+Function_W = 1;
+Gamma_abc = {};
+Shift = 0;
+Shiftj = 30;
+Writecomposition = 1;
+Noise_phasefield = 0;
+Amp_Noise_Phase = 0.0;
+Equilibrium_temperature = 1200;
+Filling_temperature = 1100;
+Tempgrady = {1200,0.1,10e-6,0,320e-6};
+Function_F = 4;
+num_thermo_phases = 2;
+tdbfname = alzn_mey.tdb;
+tdb_phases = {L12_FCC_A1_2,L12_FCC_A1_1};
+phase_map = {L12_FCC_A1_2,L12_FCC_A1_1};
+ceq = {0,0,0.172581, 0.00333402};
+ceq = {0,1,0.0684597, 0.00114417};
+ceq = {1,0,0.0684597	0.00114417};
+ceq = {1,1,0.0684597	0.00114417};
+cfill = {0,0,0.172581, 0.00333402};
+cfill = {0,1,0.0684597, 0.00114417};
+cfill = {1,0,0.0684597, 0.00114417};
+cfill = {1,1,0.0684597, 0.00114417};
