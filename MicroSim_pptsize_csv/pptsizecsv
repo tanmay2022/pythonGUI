@@ -1,0 +1,23 @@
+            elif self.ppt_size_flag == 1:
+
+                f.write( "Timesteps, Area, Radius, Major Axis, Minor Axis, Aspect Ratio \n" )
+
+                for rowNumber in range(len(self.timeItretion)):
+
+                    f.write( str(self.timeItretion[rowNumber]) + "," + str(self.arr_area[rowNumber]) + "," + str(self.arr_radius[rowNumber]) + "," + str(self.arr_major_axis[rowNumber]) + "," + str(self.arr_minor_axis[rowNumber]) + "," + str(self.arr_AR[rowNumber]) )
+
+                    f.write("\n")
+                f.close()
+
+                Submitmsg = QMessageBox()
+                Submitmsg.setWindowTitle("File Created")
+                Submitmsg.setText("\n Sucessfully created csv file at :\n\n      "+fileName  )
+                Submitmsg.exec_()
+
+                return
+
+
+                arr_radius = np.empty(len(self.timeItretion))
+                for k in range(len(self.timeItretion)):
+                    radiuslist = self.ppt_radius[k]
+                    arr_radius[k] = np.mean(radiuslist)
