@@ -317,6 +317,11 @@ class StartScreen(QDialog):
         self.BC_2.setValidator(validator)
         self.BC_3.setValidator(validator)
         self.BC_4.setValidator(validator)
+        self.graingrowth.setValidator(validator)
+        self.elasticity.setValidator(validator)
+        self.rho.setValidator(validator)
+        self.damping.setValidator(validator)
+        self.maxiter.setValidator(validator)
         self.diffInput.setValidator(validator2e)
         self.Estrain.setValidator(validator2)
         self.Econstant.setValidator(validator2)
@@ -4450,6 +4455,11 @@ class StartScreen(QDialog):
         self.V_Value.setText("1.0")
         self.diffR.setChecked(False)
         self.diffR_2.setChecked(True)
+        self.graingrowth.setText("0")
+        self.elasticity.setText("0")
+        self.rho.setText("")
+        self.damping.setText("")
+        self.maxiter.setText("")
         self.diffInput.setText("")
         self.Estrain.setText("0.01,0.01,0.0,0.0,0.0,0.0")
         self.es.setChecked(True)
@@ -7643,7 +7653,12 @@ class StartScreen(QDialog):
         else:
             self.finish_error.setText("Please fill V Value")
             return
-        
+
+        ELASTICITY = self.elasticity.text()
+        rho = self.rho.text()
+        damping_factor = self.damping.text()
+        max_iterations = self.maxiter.text()
+        GRAIN_GROWTH = self.graingrowth.text()
 
         DIFFUSIVITY = [""]*NoP
         EIGEN_STRAIN =[""]*NoP
@@ -7759,6 +7774,12 @@ class StartScreen(QDialog):
                 "GAMMA = {"+ str(GAMMA) +"};\n"
                 "R = " + R +";\n"
                 "V = " + V +";\n"
+                "GRAIN_GROWTH = " + str(GRAIN_GROWTH) + ";\n"
+                "##Elasticity related parameters\n"
+                "ELASTICITY = " + str(ELASTICITY) + ";\n"
+                "rho = " + str(rho) + ";\n"
+                "damping_factor = " + str(damping_factor) + ";\n"
+                "max_iterations = " + str(max_iterations) + ";\n"
                 )
 
         for i in range(len(DIFFUSIVITY)):
@@ -8330,10 +8351,10 @@ class StartScreen(QDialog):
                 self.StartFrame.hide()
                 self.resetAll()
                 self.ShapeFlag = 1
-                self.gpFlag = [0]*27
+                self.gpFlag = [0]*32
                 self.chFlag = [0]*26
-                self.kksFlag = [0]*38
-                self.kks2Flag = [0]*45
+                self.kksFlag = [0]*42
+                self.kks2Flag = [0]*49
                 for i in fileLines:
 
                     if "#" in i:
@@ -8354,10 +8375,10 @@ class StartScreen(QDialog):
 
                 #print(self.gpFlag)
                 if self.model_GP.isChecked() or self.model_of.isChecked() or self.model_amrex.isChecked():
-                    gpVariables =["DIMENSION", "MESH_X" ,"MESH_Y", "MESH_Z", "DELTA_X" ,"DELTA_Y", "DELTA_Z", "DELTA_t", "NUMPHASES", "NUMCOMPONENTS", "NTIMESTEPS", "NSMOOTH", "SAVET", "COMPONENTS", "PHASES", "GAMMA", "DIFFUSIVITY", "R", "V", "EIGEN_STRAIN", "Elastic Constant","BOUNDARY Phi","BOUNDARY mu/c","BOUNDARY T","BOUNDARY_VALUE Phi","BOUNDARY_VALUE mu/c","BOUNDARY_VALUE T"]
+                    gpVariables =["DIMENSION", "MESH_X" ,"MESH_Y", "MESH_Z", "DELTA_X" ,"DELTA_Y", "DELTA_Z", "DELTA_t", "NUMPHASES", "NUMCOMPONENTS", "NTIMESTEPS", "NSMOOTH", "SAVET", "COMPONENTS", "PHASES", "GAMMA", "DIFFUSIVITY", "R", "V", "EIGEN_STRAIN", "Elastic Constant","BOUNDARY Phi","BOUNDARY mu/c","BOUNDARY T","BOUNDARY_VALUE Phi","BOUNDARY_VALUE mu/c","BOUNDARY_VALUE T","GRAIN_GROWTH","ELASTICITY","rho","damping_factor","max_iterations"]
                     gpmsgFlag =0
                     gperror = "Oops ! we have noticed some missing parameters in your Infile\n"
-                    for i in range(27):
+                    for i in range(32):
                         if self.gpFlag[i] == 0:
                             gperror = gperror + "\n ("+str(gpmsgFlag+1) + ") " + gpVariables[i]
                             gpmsgFlag = gpmsgFlag +1
@@ -8385,10 +8406,10 @@ class StartScreen(QDialog):
                         CHmsg.exec_()
 
                 if self.model_KKS.isChecked():
-                    kksVariables =["DIMENSION", "MESH_X" ,"MESH_Y", "MESH_Z", "DELTA_X" ,"DELTA_Y", "DELTA_Z", "DELTA_t", "NUMPHASES", "NUMCOMPONENTS", "NTIMESTEPS", "NSMOOTH", "SAVET", "COMPONENTS", "PHASES", "GAMMA", "DIFFUSIVITY", "R", "V", "EIGEN_STRAIN", "Elastic Constant","BOUNDARY Phi","BOUNDARY mu/c","BOUNDARY T","BOUNDARY_VALUE Phi","BOUNDARY_VALUE mu/c","BOUNDARY_VALUE T"," WRITEFORMAT", "TRACK_PROGRESS", "ELAST_INT","relax_coeff" ,"seed", "alpha", "lambda","Tau","Epsilon"]
+                    kksVariables =["DIMENSION", "MESH_X" ,"MESH_Y", "MESH_Z", "DELTA_X" ,"DELTA_Y", "DELTA_Z", "DELTA_t", "NUMPHASES", "NUMCOMPONENTS", "NTIMESTEPS", "NSMOOTH", "SAVET", "COMPONENTS", "PHASES", "GAMMA", "DIFFUSIVITY", "R", "V", "EIGEN_STRAIN", "Elastic Constant","BOUNDARY Phi","BOUNDARY mu/c","BOUNDARY T","BOUNDARY_VALUE Phi","BOUNDARY_VALUE mu/c","BOUNDARY_VALUE T"," WRITEFORMAT", "TRACK_PROGRESS", "ELAST_INT","relax_coeff" ,"seed", "alpha", "lambda","Tau","Epsilon","ELASTICITY","rho","damping_factor","max_iterations"]
                     kksmsgFlag =0
                     kkserror = "Oops ! we have noticed some missing parameters in your Infile\n"
-                    for i in range(36):
+                    for i in range(40):
                         if self.kksFlag[i] == 0:
                             kkserror = kkserror + "\n ("+str(kksmsgFlag+1) + ") " + kksVariables[i]
                             kksmsgFlag = kksmsgFlag +1
@@ -8399,10 +8420,10 @@ class StartScreen(QDialog):
                         KKSmsg.exec_()
 
                 if self.model_KKS2.isChecked():
-                    kks2Variables =["DIMENSION", "MESH_X" ,"MESH_Y", "MESH_Z", "DELTA_X" ,"DELTA_Y", "DELTA_Z", "DELTA_t", "NUMPHASES", "NUMCOMPONENTS", "NTIMESTEPS", "NSMOOTH", "SAVET", "COMPONENTS", "PHASES", "GAMMA", "DIFFUSIVITY", "R", "V", "BOUNDARY Phi","BOUNDARY mu/c","BOUNDARY T","BOUNDARY_VALUE Phi","BOUNDARY_VALUE mu/c","BOUNDARY_VALUE T", "ISOTHERMAL", "BINARY/TERNARY/DILUTE", "WRITEFORMAT", "TRACK_PROGRESS", "epsilon", "Function_anisotropy",  "dab", "temperature", "Noise_phasefield", "Amp_Noise_Phase", "Tempgrady", "tNoiseStart", "Equilibrium_temperature", "atr", "CLplatformID", "CLdeviceID", "shift", "shift J", "Filling_temperature"]
+                    kks2Variables =["DIMENSION", "MESH_X" ,"MESH_Y", "MESH_Z", "DELTA_X" ,"DELTA_Y", "DELTA_Z", "DELTA_t", "NUMPHASES", "NUMCOMPONENTS", "NTIMESTEPS", "NSMOOTH", "SAVET", "COMPONENTS", "PHASES", "GAMMA", "DIFFUSIVITY", "R", "V", "BOUNDARY Phi","BOUNDARY mu/c","BOUNDARY T","BOUNDARY_VALUE Phi","BOUNDARY_VALUE mu/c","BOUNDARY_VALUE T", "ISOTHERMAL", "BINARY/TERNARY/DILUTE", "WRITEFORMAT", "TRACK_PROGRESS", "epsilon", "Function_anisotropy",  "dab", "temperature", "Noise_phasefield", "Amp_Noise_Phase", "Tempgrady", "tNoiseStart", "Equilibrium_temperature", "atr", "CLplatformID", "CLdeviceID", "shift", "shift J", "Filling_temperature","ELASTICITY","rho","damping_factor","max_iterations"]
                     kks2msgFlag =0
                     kks2error = "Oops ! we have noticed some missing parameters in your Infile\n"
-                    for i in range(44):
+                    for i in range(48):
                         if self.kks2Flag[i] == 0:
                             kks2error = kks2error + "\n ("+str(kks2msgFlag+1) + ") " + kks2Variables[i]
                             kks2msgFlag = kks2msgFlag +1
@@ -8570,6 +8591,31 @@ class StartScreen(QDialog):
         elif entryname == "V":
             self.V_Value.setText(entryvalue)
             self.gpFlag[18] = 1
+
+        elif entryname == "GRAIN_GROWTH":
+            self.graingrowth.setText(entryvalue)
+            self.gpFlag[27] = 1
+            return
+
+        elif entryname == "ELASTICITY":
+            self.elasticity.setText(entryvalue)
+            self.gpFlag[28] = 1
+            return
+
+        elif entryname == "rho":
+            self.rho.setText(entryvalue)
+            self.gpFlag[29] = 1
+            return
+
+        elif entryname == "damping_factor":
+            self.damping.setText(entryvalue)
+            self.gpFlag[30] = 1
+            return
+
+        elif entryname == "max_iterations":
+            self.maxiter.setText(entryvalue)
+            self.gpFlag[31] = 1
+            return
 
         elif entryname == "EIGEN_STRAIN":
             entryvalue = entryvalue.replace("{","")
@@ -9249,6 +9295,26 @@ class StartScreen(QDialog):
             self.V_Value.setText(entryvalue)
             self.kksFlag[18] = 1
 
+        elif entryname == "ELASTICITY":
+            self.elasticity.setText(entryvalue)
+            self.kksFlag[38] = 1
+            return
+
+        elif entryname == "rho":
+            self.rho.setText(entryvalue)
+            self.kksFlag[39] = 1
+            return
+
+        elif entryname == "damping_factor":
+            self.damping.setText(entryvalue)
+            self.kksFlag[40] = 1
+            return
+
+        elif entryname == "max_iterations":
+            self.maxiter.setText(entryvalue)
+            self.kksFlag[41] = 1
+            return
+
         elif entryname == "EIGEN_STRAIN":
             entryvalue = entryvalue.replace("{","")
             entryvalue = entryvalue.replace("}","")
@@ -9614,6 +9680,27 @@ class StartScreen(QDialog):
         elif entryname == "V":
             self.V_Value.setText(entryvalue)
             self.kks2Flag[18] = 1
+
+
+        elif entryname == "ELASTICITY":
+            self.elasticity.setText(entryvalue)
+            self.kks2Flag[45] = 1
+            return
+
+        elif entryname == "rho":
+            self.rho.setText(entryvalue)
+            self.kks2Flag[46] = 1
+            return
+
+        elif entryname == "damping_factor":
+            self.damping.setText(entryvalue)
+            self.kks2Flag[47] = 1
+            return
+
+        elif entryname == "max_iterations":
+            self.maxiter.setText(entryvalue)
+            self.kks2Flag[48] = 1
+            return
 
 
         elif entryname == "BOUNDARY":

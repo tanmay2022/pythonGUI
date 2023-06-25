@@ -31,6 +31,7 @@ DIFFUSIVITY = {1, 1, 1.0e-13, 1.0e-13};
 ##Gas constant and molar volume
 R = 8.314;
 V = 10e-6;
+GRAIN_GROWTH = 0;
 ##Elasticity related parameters
 ELASTICITY = 1;
 EIGEN_STRAIN = {0, 0.01, 0.01, 0.01, 0.0, 0.0, 0.0};

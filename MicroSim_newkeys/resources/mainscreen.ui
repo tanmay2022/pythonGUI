@@ -2786,7 +2786,7 @@ factor   :</string>
        </font>
       </property>
       <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Elasticity is the key to relate to solving mechanical equilibrium equation.&lt;/p&gt;&lt;p&gt;• For a value of 0, equilibrium equation is not solved.&lt;/p&gt;&lt;p&gt;• A value of 1 corresponds to solving equilibrium equation.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Elasticity is the key to relate to solving mechanical equilibrium equation.&lt;/p&gt;&lt;p&gt;• For a value of 0, equilibrium equation is not solved.&lt;/p&gt;&lt;p&gt;• A value of 1 corresponds to solving equilibrium equation.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(225, 225, 225);
@@ -2887,7 +2887,7 @@ iterations  :</string>
        </font>
       </property>
       <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;grain growth is the key to relate to solving grain growth problem.&lt;/p&gt;&lt;p&gt;• For a value of 0, a single grain is simulated.&lt;/p&gt;&lt;p&gt;• A value of 1 corresponds to multiple grains.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;grain growth is the key to relate to solving grain growth problem.&lt;/p&gt;&lt;p&gt;• For a value of 0, a single grain is simulated.&lt;/p&gt;&lt;p&gt;• A value of 1 corresponds to multiple grains.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(225, 225, 225);
@@ -2934,8 +2934,8 @@ border : 1px solid rgb(225, 225, 225);</string>
        <string notr="true">color : white;</string>
       </property>
       <property name="text">
-       <string>grain 
-growth  :</string>
+       <string>GRAIN 
+GROWTH  :</string>
       </property>
      </widget>
     </widget>
