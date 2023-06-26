@@ -1016,7 +1016,7 @@ class StartScreen(QDialog):
 
             self.frame_5.setGeometry( int((60*0.85*self.display_W)) , int((90*0.85*self.display_H)) , int((650*0.85*self.display_W)) , int((350*0.85*self.display_H))  )
             self.frame5_widget.setGeometry( int((370*self.display_W)) , int((20*1.5*self.display_H)) , 311 , 301  )
-            self.frame5_elas.setGeometry( int((180*3*self.display_W)) , int((15*1.5*self.display_H)) , 331 , 320  )
+            self.frame5_elas.setGeometry( int((180*1.4*self.display_W)) , int((15*1.5*self.display_H)) , 331 , 320  )
             self.pDropdown.setGeometry( int((30*0.85*self.display_W)) , int((10*0.85*self.display_H)) , int((131*0.85*self.display_W)) , int((31*0.85*self.display_H))  )
             self.allCheck.setGeometry( int((170*0.85*self.display_W)) , int((10*0.85*self.display_H)) , int((141*0.85*self.display_W)) , int((31*0.85*self.display_H))  )
             self.error5.setGeometry( int((10*self.display_W)) , int((300*0.85*self.display_H)) , 561 , 31  )
