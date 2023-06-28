@@ -365,7 +365,12 @@ class StartScreen(QDialog):
         self.debGP.setValidator(validator2)
         self.gammaABCGP.setValidator(validator2)
         self.tempgradyGP.setValidator(validator2)
-
+        
+        self.graingrowth.setValidator(validator)
+        self.elasticity.setValidator(validator)
+        self.rho.setValidator(validator)
+        self.damping.setValidator(validator)
+        self.maxiter.setValidator(validator)
 
         #CH Validator
         self.trackProgressCH.setValidator(validator)
@@ -1010,7 +1015,7 @@ class StartScreen(QDialog):
 
 
             self.frame_5.setGeometry( int((60*0.85*self.display_W)) , int((90*0.85*self.display_H)) , int((650*0.85*self.display_W)) , int((350*0.85*self.display_H))  )
-            self.frame5_widget.setGeometry( int((330*self.display_W)) , int((20*1.5*self.display_H)) , 311 , 301  )
+            self.frame5_widget.setGeometry( int((370*self.display_W)) , int((20*1.5*self.display_H)) , 311 , 301  )
             self.pDropdown.setGeometry( int((30*0.85*self.display_W)) , int((10*0.85*self.display_H)) , int((131*0.85*self.display_W)) , int((31*0.85*self.display_H))  )
             self.allCheck.setGeometry( int((170*0.85*self.display_W)) , int((10*0.85*self.display_H)) , int((141*0.85*self.display_W)) , int((31*0.85*self.display_H))  )
             self.error5.setGeometry( int((10*self.display_W)) , int((300*0.85*self.display_H)) , 561 , 31  )
@@ -1106,13 +1111,14 @@ class StartScreen(QDialog):
             self.label_82.setGeometry( int((560*0.85*self.display_W)) , 0 , 71 , 25 )
             self.label_154.setGeometry( int((560*0.85*self.display_W)) , 0 , 71 , 25 )
 
-            self.frame9GP_widget1.setGeometry( int((150*self.display_W)) , int((60*self.display_H)) , 341 , 231 )  
+            self.frame9GP_widget1.setGeometry( int((50*self.display_W)) , int((60*self.display_H)) , 341 , 231 )  
             self.frame9GP_widget2.setGeometry( int((30*1.5*self.display_W)) , int((30*1.5*self.display_H)) , 271 , 241 )
             self.frame9GP_widget3.setGeometry( int((300*self.display_W)) , int((30*1.5*self.display_H)) , 331 , 241 )
             self.frame9GP_widget4.setGeometry( int((30*1.5*self.display_W)) , int((30*1.5*self.display_H)) , 331 , 241 )
             self.frame9GP_widget5.setGeometry( int((310*self.display_W)) , int((30*1.5*self.display_H)) , 331 , 251 )
             self.frame9GP_widget6.setGeometry( int((40*1.5*self.display_W)) , int((30*1.5*self.display_H)) , 261 , 251 )
             self.frame9GP_widget7.setGeometry( int((300*self.display_W)) , int((30*1.5*self.display_H)) , 341 , 251 )
+            self.frame9GP_widget8.setGeometry( int((300*self.display_W)) , int((30*1.5*self.display_H)) , 400 , 320  )
             
 
             self.frame_9KKS.setGeometry( 0 , 0 , int((650*0.85*self.display_W)) , int((350*0.85*self.display_H))  )
@@ -1123,7 +1129,8 @@ class StartScreen(QDialog):
             self.errorKKS.setGeometry( int((30*self.display_W)) , int((300*0.85*self.display_H)) , 231 , 31 )
             self.label_100.setGeometry( int((560*0.85*self.display_W)) , 0 , 71 , 25 )
             self.frame9KKS_widget1.setGeometry( int((40*1.5*self.display_W)) , int((30*1.5*self.display_H)) , 301 , 251 )
-            self.frame9KKS_widget2.setGeometry( int((350*self.display_W)) , int((30*1.5*self.display_H)) , 281 , 251 )
+            self.frame9KKS_widget2.setGeometry( int((350*self.display_W)) , int((-10*self.display_H)) , 281 , 251 )
+            self.frame9KKS_widget3.setGeometry( int((350*self.display_W)) , int((220*0.6*self.display_H)) , 281 , 100 )
 
             self.frame_9KKS2.setGeometry( 0 , 0 , int((650*0.85*self.display_W)) , int((350*0.85*self.display_H))  )
             self.stackedWidgetKKS2.setGeometry( 0 , int((8*1.5*self.display_H)) , int((641*0.85*self.display_W)) , int((290*0.85*self.display_H))  )
@@ -1134,7 +1141,8 @@ class StartScreen(QDialog):
             self.label_109.setGeometry( int((560*0.85*self.display_W)) , 0 , 71 , 25 )
             self.label_119.setGeometry( int((560*0.85*self.display_W)) , 0 , 71 , 25 )
             self.label_151.setGeometry( int((560*0.85*self.display_W)) , 0 , 71 , 25 )
-            self.frame9KKS2_widget.setGeometry( int((150*1.1*self.display_W)) , int((60*1.2*self.display_H)) , 361 , 221 )
+            self.frame9KKS2_widget.setGeometry( int((0*1.1*self.display_W)) , int((60*1.2*self.display_H)) , 361 , 221 )
+            self.frame9KKS2_widget1.setGeometry( int((350*self.display_W)) , int((70*1.2*self.display_H)) , 281 , 100 )
             self.frame9KKS2_widget2.setGeometry( int((30*1.5*self.display_W)) , int((30*1.5*self.display_H)) , 315 , 251 )
             self.frame9KKS2_widget3.setGeometry( int((345*self.display_W)) , int((30*1.5*self.display_H)) , 291 , 251 )
             self.frame9KKS2_widget4.setGeometry( int((30*1.5*self.display_W)) , int((40*1.4*self.display_H)) , 301 , 241 )
@@ -1351,7 +1359,7 @@ class StartScreen(QDialog):
 
 
             self.frame_5.setGeometry( int((60*self.display_W)) , int((90*self.display_H)) , int((650*self.display_W)) , int((350*self.display_H))  )
-            self.frame5_widget.setGeometry( int((330*self.display_W)) , int((20*self.display_H)) , 311 , 301  )
+            self.frame5_widget.setGeometry( int((370*self.display_W)) , int((20*self.display_H)) , 311 , 301  )
             self.pDropdown.setGeometry( int((30*self.display_W)) , int((10*self.display_H)) , int((131*self.display_W)) , int((31*self.display_H))  )
             self.allCheck.setGeometry( int((170*self.display_W)) , int((10*self.display_H)) , int((141*self.display_W)) , int((31*self.display_H))  )
             self.error5.setGeometry( int((10*self.display_W)) , int((300*self.display_H)) , 561 , 31  )
@@ -1450,13 +1458,14 @@ class StartScreen(QDialog):
             self.label_82.setGeometry( int((560*self.display_W)) , 0 , 71 , 25 )
             self.label_154.setGeometry( int((560*self.display_W)) , 0 , 71 , 25 )
 
-            self.frame9GP_widget1.setGeometry( int((150*self.display_W)) , int((60*self.display_H)) , 341 , 231 )  
+            self.frame9GP_widget1.setGeometry( int((50*self.display_W)) , int((60*self.display_H)) , 341 , 231 )  
             self.frame9GP_widget2.setGeometry( int((30*self.display_W)) , int((30*self.display_H)) , 271 , 241 )
             self.frame9GP_widget3.setGeometry( int((300*self.display_W)) , int((30*self.display_H)) , 331 , 241 )
             self.frame9GP_widget4.setGeometry( int((30*self.display_W)) , int((30*self.display_H)) , 331 , 241 )
             self.frame9GP_widget5.setGeometry( int((310*self.display_W)) , int((30*self.display_H)) , 331 , 251 )
             self.frame9GP_widget6.setGeometry( int((40*self.display_W)) , int((30*self.display_H)) , 261 , 251 )
             self.frame9GP_widget7.setGeometry( int((300*self.display_W)) , int((30*self.display_H)) , 341 , 251 )
+            self.frame9GP_widget8.setGeometry( int((300*self.display_W)) , int((30*self.display_H)) , 400 , 320  )
             
 
 
@@ -1468,7 +1477,8 @@ class StartScreen(QDialog):
             self.errorKKS.setGeometry( int((30*self.display_W)) , int((300*self.display_H)) , 231 , 31 )
             self.label_100.setGeometry( int((560*self.display_W)) , 0 , 71 , 25 )
             self.frame9KKS_widget1.setGeometry( int((40*self.display_W)) , int((30*self.display_H)) , 301 , 251 )
-            self.frame9KKS_widget2.setGeometry( int((350*self.display_W)) , int((30*self.display_H)) , 281 , 251 )
+            self.frame9KKS_widget2.setGeometry( int((350*self.display_W)) , int((-10*self.display_H)) , 281 , 251 )
+            self.frame9KKS_widget3.setGeometry( int((350*self.display_W)) , int((200*self.display_H)) , 281 , 100 )
 
 
             self.frame_9KKS2.setGeometry( 0 , 0 , int((650*self.display_W)) , int((350*self.display_H))  )
@@ -1480,7 +1490,8 @@ class StartScreen(QDialog):
             self.label_109.setGeometry( int((560*self.display_W)) , 0 , 71 , 25 )
             self.label_119.setGeometry( int((560*self.display_W)) , 0 , 71 , 25 )
             self.label_151.setGeometry( int((560*self.display_W)) , 0 , 71 , 25 )
-            self.frame9KKS2_widget.setGeometry( int((150*self.display_W)) , int((60*self.display_H)) , 361 , 221 )
+            self.frame9KKS2_widget.setGeometry( int((0*self.display_W)) , int((60*self.display_H)) , 361 , 221 )
+            self.frame9KKS2_widget1.setGeometry( int((350*self.display_W)) , int((70*self.display_H)) , 281 , 100 )
             self.frame9KKS2_widget2.setGeometry( int((30*self.display_W)) , int((30*self.display_H)) , 315 , 251 )
             self.frame9KKS2_widget3.setGeometry( int((345*self.display_W)) , int((30*self.display_H)) , 291 , 251 )
             self.frame9KKS2_widget4.setGeometry( int((30*self.display_W)) , int((40*self.display_H)) , 301 , 241 )
@@ -4448,6 +4459,11 @@ class StartScreen(QDialog):
         self.V_Value.setText("1.0")
         self.diffR.setChecked(False)
         self.diffR_2.setChecked(True)
+        self.graingrowth.setText("0")
+        self.elasticity.setText("0")
+        self.rho.setText("")
+        self.damping.setText("")
+        self.maxiter.setText("")
         self.diffInput.setText("")
         self.Estrain.setText("0.01,0.01,0.0,0.0,0.0,0.0")
         self.es.setChecked(True)
@@ -4549,7 +4565,8 @@ class StartScreen(QDialog):
         self.TauKKS.setText("")
         self.EpsilonKKS.setText("")
         self.equTKKS.setText("")
-    
+        self.graingrowthKKS.setText("0")
+        self.elasticityKKS.setText("0")    
 
         #KKS2
         '''
@@ -4581,6 +4598,8 @@ class StartScreen(QDialog):
         self.shiftKKS2.setValue(0)
         self.ShiftJKKS2.setText("")
         self.fillingTKKS.setText("")
+        self.graingrowthKKS2.setText("0")
+        self.elasticityKKS2.setText("0")
 
 
         ##deleting all Error
@@ -7641,7 +7660,7 @@ class StartScreen(QDialog):
         else:
             self.finish_error.setText("Please fill V Value")
             return
-        
+
 
         DIFFUSIVITY = [""]*NoP
         EIGEN_STRAIN =[""]*NoP
@@ -7837,7 +7856,12 @@ class StartScreen(QDialog):
                 elif self.simTypeGP.currentIndex() == 2:
                     f.write("BINARY = 0;\nTERNARY = 0;\nDILUTE = 1;\n")
 
-                f.write("T = " + self.TGP.text() + ";\n"
+                f.write("GRAIN_GROWTH = " +self.graingrowth.text()+ ";\n"
+                	"ELASTICITY = " +self.elasticity.text()+ ";\n"
+                	"rho = " +self.rho.text()+ ";\n"
+                	"damping_factor = " +self.damping.text()+ ";\n"
+                	"max_iterations = " +self.maxiter.text()+ ";\n"
+                	"T = " + self.TGP.text() + ";\n"
                         "WRITEFORMAT = "+self.writeFormatGP.currentText()+";\n"
                         "WRITEHDF5 = " + str(self.writehdfGP.value()) +";\n"
                         "TRACK_PROGRESS = " + self.trackProgressGP.text()+";\n"
@@ -7868,7 +7892,9 @@ class StartScreen(QDialog):
             if self.saveKKSCheck():
 
                 f.write("##Model-specific parameters: KKS FFT GPU \n")
-                f.write("WRITEFORMAT = "+self.writeFormatKKS.currentText()+";\n"
+                f.write("GRAIN_GROWTH = " +self.graingrowthKKS.text()+ ";\n"
+                	"ELASTICITY = " +self.elasticityKKS.text()+ ";\n"
+                	"WRITEFORMAT = "+self.writeFormatKKS.currentText()+";\n"
                         "TRACK_PROGRESS = " + self.trackprogressKKS.text()+";\n"
                         "Tau = {" + self.TauKKS.text()+"};\n"
                         "epsilon = " + self.EpsilonKKS.text()+";\n"
@@ -7907,7 +7933,9 @@ class StartScreen(QDialog):
                 elif self.simTypeKKS2.currentIndex() == 2:
                     f.write("BINARY = 0;\nTERNARY = 0;\nDILUTE = 1;\n")
 
-                f.write("WRITEFORMAT = "+self.writeFormatKKS2.currentText()+";\n"
+                f.write("GRAIN_GROWTH = " +self.graingrowthKKS2.text()+ ";\n"
+                	"ELASTICITY = " +self.elasticityKKS2.text()+ ";\n"
+                	"WRITEFORMAT = "+self.writeFormatKKS2.currentText()+";\n"
                         "TRACK_PROGRESS = " + self.trackProgressKKS2.text()+";\n"
                         "epsilon = " + self.epsilonKKS2.text()+";\n"
                         "Function_anisotropy = " + self.FanisotropyKKS2.text()+";\n"
@@ -8328,10 +8356,10 @@ class StartScreen(QDialog):
                 self.StartFrame.hide()
                 self.resetAll()
                 self.ShapeFlag = 1
-                self.gpFlag = [0]*27
+                self.gpFlag = [0]*32
                 self.chFlag = [0]*26
-                self.kksFlag = [0]*38
-                self.kks2Flag = [0]*45
+                self.kksFlag = [0]*42
+                self.kks2Flag = [0]*49
                 for i in fileLines:
 
                     if "#" in i:
@@ -8352,10 +8380,10 @@ class StartScreen(QDialog):
 
                 #print(self.gpFlag)
                 if self.model_GP.isChecked() or self.model_of.isChecked() or self.model_amrex.isChecked():
-                    gpVariables =["DIMENSION", "MESH_X" ,"MESH_Y", "MESH_Z", "DELTA_X" ,"DELTA_Y", "DELTA_Z", "DELTA_t", "NUMPHASES", "NUMCOMPONENTS", "NTIMESTEPS", "NSMOOTH", "SAVET", "COMPONENTS", "PHASES", "GAMMA", "DIFFUSIVITY", "R", "V", "EIGEN_STRAIN", "Elastic Constant","BOUNDARY Phi","BOUNDARY mu/c","BOUNDARY T","BOUNDARY_VALUE Phi","BOUNDARY_VALUE mu/c","BOUNDARY_VALUE T"]
+                    gpVariables =["DIMENSION", "MESH_X" ,"MESH_Y", "MESH_Z", "DELTA_X" ,"DELTA_Y", "DELTA_Z", "DELTA_t", "NUMPHASES", "NUMCOMPONENTS", "NTIMESTEPS", "NSMOOTH", "SAVET", "COMPONENTS", "PHASES", "GAMMA", "DIFFUSIVITY", "R", "V", "EIGEN_STRAIN", "Elastic Constant","BOUNDARY Phi","BOUNDARY mu/c","BOUNDARY T","BOUNDARY_VALUE Phi","BOUNDARY_VALUE mu/c","BOUNDARY_VALUE T","GRAIN_GROWTH","ELASTICITY","rho","damping_factor","max_iterations"]
                     gpmsgFlag =0
                     gperror = "Oops ! we have noticed some missing parameters in your Infile\n"
-                    for i in range(27):
+                    for i in range(32):
                         if self.gpFlag[i] == 0:
                             gperror = gperror + "\n ("+str(gpmsgFlag+1) + ") " + gpVariables[i]
                             gpmsgFlag = gpmsgFlag +1
@@ -8383,10 +8411,10 @@ class StartScreen(QDialog):
                         CHmsg.exec_()
 
                 if self.model_KKS.isChecked():
-                    kksVariables =["DIMENSION", "MESH_X" ,"MESH_Y", "MESH_Z", "DELTA_X" ,"DELTA_Y", "DELTA_Z", "DELTA_t", "NUMPHASES", "NUMCOMPONENTS", "NTIMESTEPS", "NSMOOTH", "SAVET", "COMPONENTS", "PHASES", "GAMMA", "DIFFUSIVITY", "R", "V", "EIGEN_STRAIN", "Elastic Constant","BOUNDARY Phi","BOUNDARY mu/c","BOUNDARY T","BOUNDARY_VALUE Phi","BOUNDARY_VALUE mu/c","BOUNDARY_VALUE T"," WRITEFORMAT", "TRACK_PROGRESS", "ELAST_INT","relax_coeff" ,"seed", "alpha", "lambda","Tau","Epsilon"]
+                    kksVariables =["DIMENSION", "MESH_X" ,"MESH_Y", "MESH_Z", "DELTA_X" ,"DELTA_Y", "DELTA_Z", "DELTA_t", "NUMPHASES", "NUMCOMPONENTS", "NTIMESTEPS", "NSMOOTH", "SAVET", "COMPONENTS", "PHASES", "GAMMA", "DIFFUSIVITY", "R", "V", "EIGEN_STRAIN", "Elastic Constant","BOUNDARY Phi","BOUNDARY mu/c","BOUNDARY T","BOUNDARY_VALUE Phi","BOUNDARY_VALUE mu/c","BOUNDARY_VALUE T"," WRITEFORMAT", "TRACK_PROGRESS", "ELAST_INT","relax_coeff" ,"seed", "alpha", "lambda","Tau","Epsilon","GRAIN_GROWTH","ELASTICITY"]
                     kksmsgFlag =0
                     kkserror = "Oops ! we have noticed some missing parameters in your Infile\n"
-                    for i in range(36):
+                    for i in range(38):
                         if self.kksFlag[i] == 0:
                             kkserror = kkserror + "\n ("+str(kksmsgFlag+1) + ") " + kksVariables[i]
                             kksmsgFlag = kksmsgFlag +1
@@ -8397,10 +8425,10 @@ class StartScreen(QDialog):
                         KKSmsg.exec_()
 
                 if self.model_KKS2.isChecked():
-                    kks2Variables =["DIMENSION", "MESH_X" ,"MESH_Y", "MESH_Z", "DELTA_X" ,"DELTA_Y", "DELTA_Z", "DELTA_t", "NUMPHASES", "NUMCOMPONENTS", "NTIMESTEPS", "NSMOOTH", "SAVET", "COMPONENTS", "PHASES", "GAMMA", "DIFFUSIVITY", "R", "V", "BOUNDARY Phi","BOUNDARY mu/c","BOUNDARY T","BOUNDARY_VALUE Phi","BOUNDARY_VALUE mu/c","BOUNDARY_VALUE T", "ISOTHERMAL", "BINARY/TERNARY/DILUTE", "WRITEFORMAT", "TRACK_PROGRESS", "epsilon", "Function_anisotropy",  "dab", "temperature", "Noise_phasefield", "Amp_Noise_Phase", "Tempgrady", "tNoiseStart", "Equilibrium_temperature", "atr", "CLplatformID", "CLdeviceID", "shift", "shift J", "Filling_temperature"]
+                    kks2Variables =["DIMENSION", "MESH_X" ,"MESH_Y", "MESH_Z", "DELTA_X" ,"DELTA_Y", "DELTA_Z", "DELTA_t", "NUMPHASES", "NUMCOMPONENTS", "NTIMESTEPS", "NSMOOTH", "SAVET", "COMPONENTS", "PHASES", "GAMMA", "DIFFUSIVITY", "R", "V", "BOUNDARY Phi","BOUNDARY mu/c","BOUNDARY T","BOUNDARY_VALUE Phi","BOUNDARY_VALUE mu/c","BOUNDARY_VALUE T", "ISOTHERMAL", "BINARY/TERNARY/DILUTE", "WRITEFORMAT", "TRACK_PROGRESS", "epsilon", "Function_anisotropy",  "dab", "temperature", "Noise_phasefield", "Amp_Noise_Phase", "Tempgrady", "tNoiseStart", "Equilibrium_temperature", "atr", "CLplatformID", "CLdeviceID", "shift", "shift J", "Filling_temperature","GRAIN_GROWTH","ELASTICITY"]
                     kks2msgFlag =0
                     kks2error = "Oops ! we have noticed some missing parameters in your Infile\n"
-                    for i in range(44):
+                    for i in range(46):
                         if self.kks2Flag[i] == 0:
                             kks2error = kks2error + "\n ("+str(kks2msgFlag+1) + ") " + kks2Variables[i]
                             kks2msgFlag = kks2msgFlag +1
@@ -8568,6 +8596,31 @@ class StartScreen(QDialog):
         elif entryname == "V":
             self.V_Value.setText(entryvalue)
             self.gpFlag[18] = 1
+
+        elif entryname == "GRAIN_GROWTH":
+            self.graingrowth.setText(entryvalue)
+            self.gpFlag[27] = 1
+            return
+
+        elif entryname == "ELASTICITY":
+            self.elasticity.setText(entryvalue)
+            self.gpFlag[28] = 1
+            return
+
+        elif entryname == "rho":
+            self.rho.setText(entryvalue)
+            self.gpFlag[29] = 1
+            return
+
+        elif entryname == "damping_factor":
+            self.damping.setText(entryvalue)
+            self.gpFlag[30] = 1
+            return
+
+        elif entryname == "max_iterations":
+            self.maxiter.setText(entryvalue)
+            self.gpFlag[31] = 1
+            return
 
         elif entryname == "EIGEN_STRAIN":
             entryvalue = entryvalue.replace("{","")
@@ -9247,6 +9300,16 @@ class StartScreen(QDialog):
             self.V_Value.setText(entryvalue)
             self.kksFlag[18] = 1
 
+        elif entryname == "GRAIN_GROWTH":
+            self.graingrowthKKS.setText(entryvalue)
+            self.kksFlag[36] = 1
+            return
+
+        elif entryname == "ELASTICITY":
+            self.elasticityKKS.setText(entryvalue)
+            self.kksFlag[37] = 1
+            return
+
         elif entryname == "EIGEN_STRAIN":
             entryvalue = entryvalue.replace("{","")
             entryvalue = entryvalue.replace("}","")
@@ -9612,6 +9675,17 @@ class StartScreen(QDialog):
         elif entryname == "V":
             self.V_Value.setText(entryvalue)
             self.kks2Flag[18] = 1
+
+
+        elif entryname == "GRAIN_GROWTH":
+            self.graingrowthKKS2.setText(entryvalue)
+            self.kks2Flag[44] = 1
+            return
+
+        elif entryname == "ELASTICITY":
+            self.elasticityKKS2.setText(entryvalue)
+            self.kks2Flag[45] = 1
+            return
 
 
         elif entryname == "BOUNDARY":
