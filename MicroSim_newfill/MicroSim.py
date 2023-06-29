@@ -657,6 +657,8 @@ class StartScreen(QDialog):
         self.sphereIcon.setPixmap(QPixmap("resources/img/sphere.png"))
         self.RsphereIcon.setPixmap(QPixmap("resources/img/RandomS.png"))
         self.RcylinderIcon.setPixmap(QPixmap("resources/img/corsening.png"))
+        self.voronoi2dIcon.setPixmap(QPixmap("resources/img/voronoi2d.png"))
+        self.voronoi3dIcon.setPixmap(QPixmap("resources/img/voronoi3d.png"))
         self.ashokchakra.setPixmap(QPixmap("resources/img/ashokchakra.png"))
         self.background.setPixmap(QPixmap("resources/img/backImage.png").scaledToWidth(self.height()))
         self.background2.setPixmap(QPixmap("resources/img/back2.png"))
@@ -6369,6 +6371,14 @@ class StartScreen(QDialog):
         self.Rcylinder_pptradius.setText("")
         self.Rcylinder_Spread.setText("")
         self.Rcylinder_volf.setText("")
+        self.v2d_end.setText("")
+        self.v2d_start.setText("")
+        self.v2d_count.setText("")
+        self.v2d_radius.setText("")
+        self.v3d_end.setText("")
+        self.v3d_start.setText("")
+        self.v3d_count.setText("")
+        self.v3d_radius.setText("")
         self.shapeSave.show()
         self.shapeUpdate.hide()
         self.shapeedit.setEnabled(False)
@@ -6381,6 +6391,8 @@ class StartScreen(QDialog):
             self.fillSPHERE.hide()
             self.fillRCYLINDER.hide()
             self.fillRSPHERE.hide()
+            self.fillVORONOI2D.hide()
+            self.fillVORONOI3D.hide()
             return
 
         elif self.shape.currentIndex() ==1:
@@ -6390,6 +6402,8 @@ class StartScreen(QDialog):
             self.fillSPHERE.hide()
             self.fillRCYLINDER.hide()
             self.fillRSPHERE.hide()
+            self.fillVORONOI2D.hide()
+            self.fillVORONOI3D.hide()
             return
 
         elif self.shape.currentIndex() ==2:
@@ -6399,6 +6413,8 @@ class StartScreen(QDialog):
             self.fillSPHERE.hide()
             self.fillRCYLINDER.hide()
             self.fillRSPHERE.hide()
+            self.fillVORONOI2D.hide()
+            self.fillVORONOI3D.hide()
             return
 
         elif self.shape.currentIndex() ==3:
@@ -6408,6 +6424,8 @@ class StartScreen(QDialog):
             self.fillSPHERE.show()
             self.fillRCYLINDER.hide()
             self.fillRSPHERE.hide()
+            self.fillVORONOI2D.hide()
+            self.fillVORONOI3D.hide()
             return
 
         elif self.shape.currentIndex() ==4:
@@ -6417,6 +6435,8 @@ class StartScreen(QDialog):
             self.fillSPHERE.hide()
             self.fillRCYLINDER.show()
             self.fillRSPHERE.hide()
+            self.fillVORONOI2D.hide()
+            self.fillVORONOI3D.hide()
             return
 
         elif self.shape.currentIndex() ==5:
@@ -6426,6 +6446,30 @@ class StartScreen(QDialog):
             self.fillSPHERE.hide()
             self.fillRCYLINDER.hide()
             self.fillRSPHERE.show()
+            self.fillVORONOI2D.hide()
+            self.fillVORONOI3D.hide()
+            return
+
+        elif self.shape.currentIndex() ==6:
+            self.fillCUBE.hide()
+            self.fillCYLINDER.hide()
+            self.fillELLIPSE.hide()
+            self.fillSPHERE.hide()
+            self.fillRCYLINDER.hide()
+            self.fillRSPHERE.hide()
+            self.fillVORONOI2D.show()
+            self.fillVORONOI3D.hide()
+            return
+
+        elif self.shape.currentIndex() ==7:
+            self.fillCUBE.hide()
+            self.fillCYLINDER.hide()
+            self.fillELLIPSE.hide()
+            self.fillSPHERE.hide()
+            self.fillRCYLINDER.hide()
+            self.fillRSPHERE.hide()
+            self.fillVORONOI2D.hide()
+            self.fillVORONOI3D.show()
             return
 
 
@@ -6573,6 +6617,69 @@ class StartScreen(QDialog):
                 self.ShapeList.addItem("SPHERERANDOM {"+ str(self.pDropdown_3.currentIndex()) + "," + self.Rsphere_pptradius.text() + "," + self.Rsphere_volf.text()+","+ self.Rsphere_SD.text() + ","+ self.Rsphere_Spread.text() +"}" )
                 self.shapeframe_error.setText("")
 
+
+        if self.shape.currentIndex() ==6:
+
+            if self.v2d_start.text() == "":
+                self.shapeframe_error.setText("Please fill cube start point")
+                return
+
+            elif len(self.v2d_start.text().split(",")) != 3:
+                self.shapeframe_error.setText("Invalid cube start point")
+                return
+
+            elif self.v2d_end.text() == "":
+                self.shapeframe_error.setText("Please fill cube end point")
+                return
+
+            elif len(self.v2d_end.text().split(",")) != 3:
+                self.shapeframe_error.setText("Invalid cube end point")
+                return
+
+            elif self.v2d_count.text() == "":
+                self.shapeframe_error.setText("Please fill Grain Count")
+                return
+
+            elif self.v2d_radius.text() == "":
+                self.shapeframe_error.setText("Please fill Grain Radius")
+                return
+
+            else:
+                self.ShapeList.addItem("VORONOI2D {"+ self.v2d_start.text() + "," + self.v2d_end.text()+ "," + self.v2d_count.text()+ "," + self.v2d_radius.text()+"}" )
+                self.shapeframe_error.setText("")
+
+
+        if self.shape.currentIndex() ==7:
+
+            if self.v3d_start.text() == "":
+                self.shapeframe_error.setText("Please fill cube start point")
+                return
+
+            elif len(self.v3d_start.text().split(",")) != 3:
+                self.shapeframe_error.setText("Invalid cube start point")
+                return
+
+            elif self.v3d_end.text() == "":
+                self.shapeframe_error.setText("Please fill cube end point")
+                return
+
+            elif len(self.v3d_end.text().split(",")) != 3:
+                self.shapeframe_error.setText("Invalid cube end point")
+                return
+
+            elif self.v3d_count.text() == "":
+                self.shapeframe_error.setText("Please fill Grain Count")
+                return
+
+            elif self.v3d_radius.text() == "":
+                self.shapeframe_error.setText("Please fill Grain Radius")
+                return
+
+            else:
+                self.ShapeList.addItem("VORONOI3D {"+ self.v3d_start.text() + "," + self.v3d_end.text()+ "," + self.v3d_count.text()+ "," + self.v3d_radius.text()+"}" )
+                self.shapeframe_error.setText("")
+
+
         self.shapeframe.hide()
         self.shapeedit.setEnabled(True)
         self.shapedelete.setEnabled(True)
@@ -6711,6 +6818,67 @@ class StartScreen(QDialog):
                 self.shapeframe_error.setText("")
 
 
+        elif shapeData[0] == "VORONOI2D":
+
+            if self.v2d_start.text() == "":
+                self.shapeframe_error.setText("Please fill cube start point")
+                return
+
+            elif len(self.v2d_start.text().split(",")) != 3:
+                self.shapeframe_error.setText("Invalid cube start point")
+                return
+
+            elif self.v2d_end.text() == "":
+                self.shapeframe_error.setText("Please fill cube end point")
+                return
+
+            elif len(self.v2d_end.text().split(",")) != 3:
+                self.shapeframe_error.setText("Invalid cube end point")
+                return
+
+            elif self.v2d_count.text() == "":
+                self.shapeframe_error.setText("Please fill Grain Count")
+                return
+
+            elif self.v2d_radius.text() == "":
+                self.shapeframe_error.setText("Please fill Grain Radius")
+                return
+
+            else:
+                self.ShapeList.item(self.ShapeList.currentRow()).setText("VORONOI2D {"+ self.v2d_start.text() + "," + self.v2d_end.text()+ "," + self.v2d_count.text()+ "," + self.v2d_radius.text()+"}" )
+                self.shapeframe_error.setText("")
+
+
+        elif shapeData[0] == "VORONOI2D":
+
+            if self.v3d_start.text() == "":
+                self.shapeframe_error.setText("Please fill cube start point")
+                return
+
+            elif len(self.v3d_start.text().split(",")) != 3:
+                self.shapeframe_error.setText("Invalid cube start point")
+                return
+
+            elif self.v3d_end.text() == "":
+                self.shapeframe_error.setText("Please fill cube end point")
+                return
+
+            elif len(self.v3d_end.text().split(",")) != 3:
+                self.shapeframe_error.setText("Invalid cube end point")
+                return
+
+            elif self.v3d_count.text() == "":
+                self.shapeframe_error.setText("Please fill Grain Count")
+                return
+
+            elif self.v3d_radius.text() == "":
+                self.shapeframe_error.setText("Please fill Grain Radius")
+                return
+
+            else:
+                self.ShapeList.item(self.ShapeList.currentRow()).setText("VORONOI3D {"+ self.v3d_start.text() + "," + self.v3d_end.text()+ "," + self.v3d_count.text()+ "," + self.v3d_radius.text()+"}" )
+                self.shapeframe_error.setText("")
+
 
 
         self.shapeframe.hide()
@@ -6753,7 +6921,14 @@ class StartScreen(QDialog):
             self.Rcylinder_SD.setText("")
             self.Rcylinder_pptradius.setText("")
             self.Rcylinder_volf.setText("")
-
+            self.v2d_end.setText("")
+            self.v2d_start.setText("")
+            self.v2d_count.setText("")
+            self.v2d_radius.setText("")
+            self.v3d_end.setText("")
+            self.v3d_start.setText("")
+            self.v3d_count.setText("")
+            self.v3d_radius.setText("")
 
             if shapeData[0] =="CUBE":
                 self.fillCUBE.show()
@@ -6762,6 +6937,8 @@ class StartScreen(QDialog):
                 self.fillSPHERE.hide()
                 self.fillRCYLINDER.hide()
                 self.fillRSPHERE.hide()
+                self.fillVORONOI2D.hide()
+                self.fillVORONOI3D.hide()
                 self.shapeFrameTitle.setText("CUBE | "+self.pDropdown_3.itemText(int(shapeValues[0])))
 
                 self.cube_start.setText(','.join(map(str, shapeValues[1:4])))
@@ -6776,6 +6953,8 @@ class StartScreen(QDialog):
                 self.fillSPHERE.hide()
                 self.fillRCYLINDER.hide()
                 self.fillRSPHERE.hide()
+                self.fillVORONOI2D.hide()
+                self.fillVORONOI3D.hide()
                 self.shapeFrameTitle.setText("CYLINDER | "+self.pDropdown_3.itemText(int(shapeValues[0])))
                 self.cylinder_center.setText(','.join(map(str, shapeValues[1:3])))
                 self.cylinder_zend.setText(str(shapeValues[3]))
@@ -6790,6 +6969,8 @@ class StartScreen(QDialog):
                 self.fillSPHERE.hide()
                 self.fillRCYLINDER.hide()
                 self.fillRSPHERE.hide()
+                self.fillVORONOI2D.hide()
+                self.fillVORONOI3D.hide()
                 self.shapeFrameTitle.setText("ELLIPSE | "+self.pDropdown_3.itemText(int(shapeValues[0])))
                 self.ellipse_center.setText(','.join(map(str, shapeValues[1:3])))
                 self.ellipse_majorAxis.setText(str(shapeValues[3]))
@@ -6804,6 +6985,8 @@ class StartScreen(QDialog):
                 self.fillSPHERE.show()
                 self.fillRCYLINDER.hide()
                 self.fillRSPHERE.hide()
+                self.fillVORONOI2D.hide()
+                self.fillVORONOI3D.hide()
                 self.shapeFrameTitle.setText("SPHERE | "+self.pDropdown_3.itemText(int(shapeValues[0])))
                 self.sphere_center.setText(','.join(map(str, shapeValues[1:4])))
                 self.sphere_radius.setText(shapeValues[4])
@@ -6816,6 +6999,8 @@ class StartScreen(QDialog):
                 self.fillSPHERE.hide()
                 self.fillRCYLINDER.show()
                 self.fillRSPHERE.hide()
+                self.fillVORONOI2D.hide()
+                self.fillVORONOI3D.hide()
                 self.shapeFrameTitle.setText("RANDOM CYLINDER | "+self.pDropdown_3.itemText(int(shapeValues[0])))
                 self.Rcylinder_pptradius.setText(shapeValues[1])
                 self.Rcylinder_volf.setText(shapeValues[2])
@@ -6829,10 +7014,44 @@ class StartScreen(QDialog):
                 self.fillSPHERE.hide()
                 self.fillRCYLINDER.hide()
                 self.fillRSPHERE.show()
+                self.fillVORONOI2D.hide()
+                self.fillVORONOI3D.hide()
                 self.shapeFrameTitle.setText("RANDOM SPHERE | "+self.pDropdown_3.itemText(int(shapeValues[0])))
                 self.Rsphere_pptradius.setText(shapeValues[1])
                 self.Rsphere_volf.setText(shapeValues[2])
                 self.Rsphere_SD.setText(shapeValues[3])
+                return
+
+            elif shapeData[0] =="VORONOI2D":
+                self.fillCUBE.hide()
+                self.fillCYLINDER.hide()
+                self.fillELLIPSE.hide()
+                self.fillSPHERE.hide()
+                self.fillRCYLINDER.hide()
+                self.fillRSPHERE.hide()
+                self.fillVORONOI2D.show()
+                self.fillVORONOI3D.hide()
+                self.shapeFrameTitle.setText("VORONOI2D ")
+                self.v2d_start.setText(','.join(map(str, shapeValues[0:3])))
+                self.v3d_end.setText(','.join(map(str, shapeValues[3:])))
+                self.v3d_count.setText(shapeValues[6])
+                self.v3d_radius.setText(shapeValues[7])
+                return
+
+            elif shapeData[0] =="VORONOI3D":
+                self.fillCUBE.hide()
+                self.fillCYLINDER.hide()
+                self.fillELLIPSE.hide()
+                self.fillSPHERE.hide()
+                self.fillRCYLINDER.hide()
+                self.fillRSPHERE.hide()
+                self.fillVORONOI2D.hide()
+                self.fillVORONOI3D.show()
+                self.shapeFrameTitle.setText("VORONOI3D ")
+                self.v2d_start.setText(','.join(map(str, shapeValues[0:3])))
+                self.v3d_end.setText(','.join(map(str, shapeValues[3:])))
+                self.v3d_count.setText(shapeValues[6])
+                self.v3d_radius.setText(shapeValues[7])
                 return
 
 

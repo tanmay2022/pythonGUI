@@ -12666,7 +12666,7 @@ color: rgb(53, 117, 159);
 border-bottom-color: rgb(0, 0, 0);</string>
        </property>
       </widget>
-      <widget class="QLabel" name="voronoi2dicon">
+      <widget class="QLabel" name="voronoi2dIcon">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -12860,7 +12860,7 @@ color: rgb(53, 117, 159);
 border-bottom-color: rgb(0, 0, 0);</string>
        </property>
       </widget>
-      <widget class="QLabel" name="voronoi3dicon">
+      <widget class="QLabel" name="voronoi3dIcon">
        <property name="geometry">
         <rect>
          <x>20</x>
