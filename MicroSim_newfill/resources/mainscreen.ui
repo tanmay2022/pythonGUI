@@ -12582,94 +12582,10 @@ border-bottom-color: rgb(0, 0, 0);</string>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
-      <widget class="QLabel" name="label_188">
-       <property name="geometry">
-        <rect>
-         <x>270</x>
-         <y>0</y>
-         <width>141</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Ubuntu</family>
-         <pointsize>11</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Start Point (x,y,z) :</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="v2d_start">
-       <property name="geometry">
-        <rect>
-         <x>270</x>
-         <y>30</y>
-         <width>181</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Ubuntu</family>
-         <pointsize>9</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border : 1px solid #ffffff;
-color: rgb(53, 117, 159);
-border-bottom-color: rgb(0, 0, 0);</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_189">
-       <property name="geometry">
-        <rect>
-         <x>270</x>
-         <y>55</y>
-         <width>141</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Ubuntu</family>
-         <pointsize>11</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>End Point (x,y,z) :</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="v2d_end">
-       <property name="geometry">
-        <rect>
-         <x>270</x>
-         <y>85</y>
-         <width>181</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Ubuntu</family>
-         <pointsize>9</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border : 1px solid #ffffff;
-color: rgb(53, 117, 159);
-border-bottom-color: rgb(0, 0, 0);</string>
-       </property>
-      </widget>
       <widget class="QLabel" name="voronoi2dIcon">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>10</x>
          <y>0</y>
          <width>201</width>
          <height>181</height>
@@ -12684,7 +12600,7 @@ border-bottom-color: rgb(0, 0, 0);</string>
         <rect>
          <x>360</x>
          <y>120</y>
-         <width>91</width>
+         <width>81</width>
          <height>21</height>
         </rect>
        </property>
@@ -12703,9 +12619,9 @@ border-bottom-color: rgb(0, 0, 0);</string>
       <widget class="QLineEdit" name="v2d_radius">
        <property name="geometry">
         <rect>
-         <x>330</x>
+         <x>360</x>
          <y>155</y>
-         <width>111</width>
+         <width>81</width>
          <height>21</height>
         </rect>
        </property>
@@ -12725,8 +12641,140 @@ border-bottom-color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>270</x>
-         <y>155</y>
-         <width>61</width>
+         <y>55</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Y-Start :</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_196">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>85</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Y-End :</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="v2d_xend">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>30</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border : 1px solid #ffffff;
+color: rgb(53, 117, 159);
+border-bottom-color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_190">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>0</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>X-Start :</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_194">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>30</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>X-End :</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="v2d_xstart">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>0</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border : 1px solid #ffffff;
+color: rgb(53, 117, 159);
+border-bottom-color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_197">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>120</y>
+         <width>81</width>
          <height>21</height>
         </rect>
        </property>
@@ -12742,12 +12790,12 @@ border-bottom-color: rgb(0, 0, 0);</string>
         <string>Count :</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_196">
+      <widget class="QLabel" name="label_203">
        <property name="geometry">
         <rect>
          <x>270</x>
-         <y>120</y>
-         <width>91</width>
+         <y>155</y>
+         <width>81</width>
          <height>21</height>
         </rect>
        </property>
@@ -12763,107 +12811,71 @@ border-bottom-color: rgb(0, 0, 0);</string>
         <string>Radius :</string>
        </property>
       </widget>
+      <widget class="QLineEdit" name="v2d_ystart">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>55</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border : 1px solid #ffffff;
+color: rgb(53, 117, 159);
+border-bottom-color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="v2d_yend">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>85</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border : 1px solid #ffffff;
+color: rgb(53, 117, 159);
+border-bottom-color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="fillVORONOI3D" native="true">
       <property name="geometry">
        <rect>
         <x>9</x>
         <y>39</y>
-        <width>481</width>
+        <width>521</width>
         <height>181</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
-      <widget class="QLabel" name="label_204">
-       <property name="geometry">
-        <rect>
-         <x>270</x>
-         <y>0</y>
-         <width>141</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Ubuntu</family>
-         <pointsize>11</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Start Point (x,y,z) :</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="v3d_start">
-       <property name="geometry">
-        <rect>
-         <x>270</x>
-         <y>30</y>
-         <width>181</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Ubuntu</family>
-         <pointsize>9</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border : 1px solid #ffffff;
-color: rgb(53, 117, 159);
-border-bottom-color: rgb(0, 0, 0);</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_209">
-       <property name="geometry">
-        <rect>
-         <x>270</x>
-         <y>55</y>
-         <width>141</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Ubuntu</family>
-         <pointsize>11</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>End Point (x,y,z) :</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="v3d_end">
-       <property name="geometry">
-        <rect>
-         <x>270</x>
-         <y>85</y>
-         <width>181</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Ubuntu</family>
-         <pointsize>9</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border : 1px solid #ffffff;
-color: rgb(53, 117, 159);
-border-bottom-color: rgb(0, 0, 0);</string>
-       </property>
-      </widget>
       <widget class="QLabel" name="voronoi3dIcon">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>10</x>
          <y>0</y>
          <width>201</width>
          <height>181</height>
@@ -12878,7 +12890,7 @@ border-bottom-color: rgb(0, 0, 0);</string>
         <rect>
          <x>360</x>
          <y>120</y>
-         <width>91</width>
+         <width>81</width>
          <height>21</height>
         </rect>
        </property>
@@ -12897,9 +12909,9 @@ border-bottom-color: rgb(0, 0, 0);</string>
       <widget class="QLineEdit" name="v3d_radius">
        <property name="geometry">
         <rect>
-         <x>330</x>
+         <x>360</x>
          <y>155</y>
-         <width>111</width>
+         <width>81</width>
          <height>21</height>
         </rect>
        </property>
@@ -12915,12 +12927,144 @@ color: rgb(53, 117, 159);
 border-bottom-color: rgb(0, 0, 0);</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_210">
+      <widget class="QLabel" name="label_212">
        <property name="geometry">
         <rect>
          <x>270</x>
-         <y>155</y>
-         <width>61</width>
+         <y>55</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Z-Start :</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_213">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>85</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Z-End :</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="v3d_ystart">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>30</y>
+         <width>51</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border : 1px solid #ffffff;
+color: rgb(53, 117, 159);
+border-bottom-color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_214">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>0</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>X-Start :</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_215">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>30</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Y-Start :</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="v3d_xstart">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>0</y>
+         <width>51</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border : 1px solid #ffffff;
+color: rgb(53, 117, 159);
+border-bottom-color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_216">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>120</y>
+         <width>81</width>
          <height>21</height>
         </rect>
        </property>
@@ -12936,12 +13080,12 @@ border-bottom-color: rgb(0, 0, 0);</string>
         <string>Count :</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_211">
+      <widget class="QLabel" name="label_251">
        <property name="geometry">
         <rect>
          <x>270</x>
-         <y>120</y>
-         <width>91</width>
+         <y>155</y>
+         <width>81</width>
          <height>21</height>
         </rect>
        </property>
@@ -12955,6 +13099,144 @@ border-bottom-color: rgb(0, 0, 0);</string>
        </property>
        <property name="text">
         <string>Radius :</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="v3d_zstart">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>55</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border : 1px solid #ffffff;
+color: rgb(53, 117, 159);
+border-bottom-color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="v3d_zend">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>85</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border : 1px solid #ffffff;
+color: rgb(53, 117, 159);
+border-bottom-color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="v3d_xend">
+       <property name="geometry">
+        <rect>
+         <x>470</x>
+         <y>0</y>
+         <width>51</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border : 1px solid #ffffff;
+color: rgb(53, 117, 159);
+border-bottom-color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="v3d_yend">
+       <property name="geometry">
+        <rect>
+         <x>470</x>
+         <y>30</y>
+         <width>51</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border : 1px solid #ffffff;
+color: rgb(53, 117, 159);
+border-bottom-color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_252">
+       <property name="geometry">
+        <rect>
+         <x>380</x>
+         <y>0</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>X-End :</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_258">
+       <property name="geometry">
+        <rect>
+         <x>380</x>
+         <y>30</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Y-End :</string>
        </property>
       </widget>
      </widget>
@@ -14541,8 +14823,8 @@ border :1px solid rgb(192, 191, 188);
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>210</width>
-             <height>1379</height>
+             <width>251</width>
+             <height>1416</height>
             </rect>
            </property>
            <property name="styleSheet">

@@ -6371,12 +6371,18 @@ class StartScreen(QDialog):
         self.Rcylinder_pptradius.setText("")
         self.Rcylinder_Spread.setText("")
         self.Rcylinder_volf.setText("")
-        self.v2d_end.setText("")
-        self.v2d_start.setText("")
+        self.v2d_xend.setText("")
+        self.v2d_xstart.setText("")
+        self.v2d_yend.setText("")
+        self.v2d_ystart.setText("")
         self.v2d_count.setText("")
         self.v2d_radius.setText("")
-        self.v3d_end.setText("")
-        self.v3d_start.setText("")
+        self.v3d_xend.setText("")
+        self.v3d_xstart.setText("")
+        self.v3d_yend.setText("")
+        self.v3d_ystart.setText("")
+        self.v3d_zend.setText("")
+        self.v3d_zstart.setText("")
         self.v3d_count.setText("")
         self.v3d_radius.setText("")
         self.shapeSave.show()
@@ -6620,20 +6626,20 @@ class StartScreen(QDialog):
 
         if self.shape.currentIndex() ==6:
 
-            if self.v2d_start.text() == "":
-                self.shapeframe_error.setText("Please fill cube start point")
+            if self.v2d_xstart.text() == "":
+                self.shapeframe_error.setText("Please fill x-start point")
                 return
 
-            elif len(self.v2d_start.text().split(",")) != 3:
-                self.shapeframe_error.setText("Invalid cube start point")
+            elif self.v2d_xend.text() == "":
+                self.shapeframe_error.setText("Please fill x-end point")
                 return
 
-            elif self.v2d_end.text() == "":
-                self.shapeframe_error.setText("Please fill cube end point")
+            elif self.v2d_ystart.text() == "":
+                self.shapeframe_error.setText("Please fill y-start point")
                 return
 
-            elif len(self.v2d_end.text().split(",")) != 3:
-                self.shapeframe_error.setText("Invalid cube end point")
+            elif self.v2d_yend.text() == "":
+                self.shapeframe_error.setText("Please fill y-end point")
                 return
 
             elif self.v2d_count.text() == "":
@@ -6645,26 +6651,34 @@ class StartScreen(QDialog):
                 return
 
             else:
-                self.ShapeList.addItem("VORONOI2D {"+ self.v2d_start.text() + "," + self.v2d_end.text()+ "," + self.v2d_count.text()+ "," + self.v2d_radius.text()+"}" )
+                self.ShapeList.addItem("VORONOI2D {"+ self.v2d_xstart.text() + "," + self.v2d_xend.text()+ "," + self.v2d_ystart.text() + "," + self.v2d_yend.text()+ "," + self.v2d_count.text()+ "," + self.v2d_radius.text()+"}" )
                 self.shapeframe_error.setText("")
 
 
         if self.shape.currentIndex() ==7:
 
-            if self.v3d_start.text() == "":
-                self.shapeframe_error.setText("Please fill cube start point")
+            if self.v3d_xstart.text() == "":
+                self.shapeframe_error.setText("Please fill x-start point")
                 return
 
-            elif len(self.v3d_start.text().split(",")) != 3:
-                self.shapeframe_error.setText("Invalid cube start point")
+            elif self.v3d_xend.text() == "":
+                self.shapeframe_error.setText("Please fill x-end point")
                 return
 
-            elif self.v3d_end.text() == "":
-                self.shapeframe_error.setText("Please fill cube end point")
+            elif self.v3d_ystart.text() == "":
+                self.shapeframe_error.setText("Please fill y-start point")
                 return
 
-            elif len(self.v3d_end.text().split(",")) != 3:
-                self.shapeframe_error.setText("Invalid cube end point")
+            elif self.v3d_yend.text() == "":
+                self.shapeframe_error.setText("Please fill y-end point")
+                return
+
+            elif self.v3d_zstart.text() == "":
+                self.shapeframe_error.setText("Please fill z-start point")
+                return
+
+            elif self.v3d_zend.text() == "":
+                self.shapeframe_error.setText("Please fill z-end point")
                 return
 
             elif self.v3d_count.text() == "":
@@ -6676,7 +6690,7 @@ class StartScreen(QDialog):
                 return
 
             else:
-                self.ShapeList.addItem("VORONOI3D {"+ self.v3d_start.text() + "," + self.v3d_end.text()+ "," + self.v3d_count.text()+ "," + self.v3d_radius.text()+"}" )
+                self.ShapeList.addItem("VORONOI3D {"+ self.v3d_xstart.text() + "," + self.v3d_xend.text()+ "," + self.v3d_ystart.text() + "," + self.v3d_yend.text()+ "," + self.v3d_zstart.text() + "," + self.v3d_zend.text()+ "," + self.v3d_count.text()+ "," + self.v3d_radius.text()+"}" )
                 self.shapeframe_error.setText("")
 
 
@@ -6820,20 +6834,20 @@ class StartScreen(QDialog):
 
         elif shapeData[0] == "VORONOI2D":
 
-            if self.v2d_start.text() == "":
-                self.shapeframe_error.setText("Please fill cube start point")
+            if self.v2d_xstart.text() == "":
+                self.shapeframe_error.setText("Please fill x-start point")
                 return
 
-            elif len(self.v2d_start.text().split(",")) != 3:
-                self.shapeframe_error.setText("Invalid cube start point")
+            elif self.v2d_xend.text() == "":
+                self.shapeframe_error.setText("Please fill x-end point")
                 return
 
-            elif self.v2d_end.text() == "":
-                self.shapeframe_error.setText("Please fill cube end point")
+            elif self.v2d_ystart.text() == "":
+                self.shapeframe_error.setText("Please fill y-start point")
                 return
 
-            elif len(self.v2d_end.text().split(",")) != 3:
-                self.shapeframe_error.setText("Invalid cube end point")
+            elif self.v2d_yend.text() == "":
+                self.shapeframe_error.setText("Please fill y-end point")
                 return
 
             elif self.v2d_count.text() == "":
@@ -6845,26 +6859,34 @@ class StartScreen(QDialog):
                 return
 
             else:
-                self.ShapeList.item(self.ShapeList.currentRow()).setText("VORONOI2D {"+ self.v2d_start.text() + "," + self.v2d_end.text()+ "," + self.v2d_count.text()+ "," + self.v2d_radius.text()+"}" )
+                self.ShapeList.item(self.ShapeList.currentRow()).setText("VORONOI2D {"+ self.v2d_xstart.text() + "," + self.v2d_xend.text()+ "," + self.v2d_ystart.text() + "," + self.v2d_yend.text()+ "," + self.v2d_count.text()+ "," + self.v2d_radius.text()+"}" )
                 self.shapeframe_error.setText("")
 
 
         elif shapeData[0] == "VORONOI2D":
 
-            if self.v3d_start.text() == "":
-                self.shapeframe_error.setText("Please fill cube start point")
+            if self.v3d_xstart.text() == "":
+                self.shapeframe_error.setText("Please fill x-start point")
                 return
 
-            elif len(self.v3d_start.text().split(",")) != 3:
-                self.shapeframe_error.setText("Invalid cube start point")
+            elif self.v3d_xend.text() == "":
+                self.shapeframe_error.setText("Please fill x-end point")
                 return
 
-            elif self.v3d_end.text() == "":
-                self.shapeframe_error.setText("Please fill cube end point")
+            elif self.v3d_ystart.text() == "":
+                self.shapeframe_error.setText("Please fill y-start point")
                 return
 
-            elif len(self.v3d_end.text().split(",")) != 3:
-                self.shapeframe_error.setText("Invalid cube end point")
+            elif self.v3d_yend.text() == "":
+                self.shapeframe_error.setText("Please fill y-end point")
+                return
+
+            elif self.v3d_zstart.text() == "":
+                self.shapeframe_error.setText("Please fill z-start point")
+                return
+
+            elif self.v3d_zend.text() == "":
+                self.shapeframe_error.setText("Please fill z-end point")
                 return
 
             elif self.v3d_count.text() == "":
@@ -6876,7 +6898,7 @@ class StartScreen(QDialog):
                 return
 
             else:
-                self.ShapeList.item(self.ShapeList.currentRow()).setText("VORONOI3D {"+ self.v3d_start.text() + "," + self.v3d_end.text()+ "," + self.v3d_count.text()+ "," + self.v3d_radius.text()+"}" )
+                self.ShapeList.item(self.ShapeList.currentRow()).setText("VORONOI3D {"+ self.v3d_xstart.text() + "," + self.v3d_xend.text()+ "," + self.v3d_ystart.text() + "," + self.v3d_yend.text()+ "," + self.v3d_zstart.text() + "," + self.v3d_zend.text()+ "," + self.v3d_count.text()+ "," + self.v3d_radius.text()+"}" )
                 self.shapeframe_error.setText("")
 
 
@@ -6921,12 +6943,18 @@ class StartScreen(QDialog):
             self.Rcylinder_SD.setText("")
             self.Rcylinder_pptradius.setText("")
             self.Rcylinder_volf.setText("")
-            self.v2d_end.setText("")
-            self.v2d_start.setText("")
+            self.v2d_xend.setText("")
+            self.v2d_xstart.setText("")
+            self.v2d_yend.setText("")
+            self.v2d_ystart.setText("")
             self.v2d_count.setText("")
             self.v2d_radius.setText("")
-            self.v3d_end.setText("")
-            self.v3d_start.setText("")
+            self.v3d_xend.setText("")
+            self.v3d_xstart.setText("")
+            self.v3d_yend.setText("")
+            self.v3d_ystart.setText("")
+            self.v3d_zend.setText("")
+            self.v3d_zstart.setText("")
             self.v3d_count.setText("")
             self.v3d_radius.setText("")
 
@@ -7032,10 +7060,12 @@ class StartScreen(QDialog):
                 self.fillVORONOI2D.show()
                 self.fillVORONOI3D.hide()
                 self.shapeFrameTitle.setText("VORONOI2D ")
-                self.v2d_start.setText(','.join(map(str, shapeValues[0:3])))
-                self.v3d_end.setText(','.join(map(str, shapeValues[3:])))
-                self.v3d_count.setText(shapeValues[6])
-                self.v3d_radius.setText(shapeValues[7])
+                self.v2d_xstart.setText(shapeValues[0])
+                self.v2d_xend.setText(shapeValues[1])
+                self.v2d_ystart.setText(shapeValues[2])
+                self.v2d_yend.setText(shapeValues[3])
+                self.v3d_count.setText(shapeValues[4])
+                self.v3d_radius.setText(shapeValues[5])
                 return
 
             elif shapeData[0] =="VORONOI3D":
@@ -7048,8 +7078,12 @@ class StartScreen(QDialog):
                 self.fillVORONOI2D.hide()
                 self.fillVORONOI3D.show()
                 self.shapeFrameTitle.setText("VORONOI3D ")
-                self.v2d_start.setText(','.join(map(str, shapeValues[0:3])))
-                self.v3d_end.setText(','.join(map(str, shapeValues[3:])))
+                self.v3d_xstart.setText(shapeValues[0])
+                self.v3d_xend.setText(shapeValues[1])
+                self.v3d_ystart.setText(shapeValues[2])
+                self.v3d_yend.setText(shapeValues[3])
+                self.v3d_zstart.setText(shapeValues[4])
+                self.v3d_zend.setText(shapeValues[5])
                 self.v3d_count.setText(shapeValues[6])
                 self.v3d_radius.setText(shapeValues[7])
                 return
