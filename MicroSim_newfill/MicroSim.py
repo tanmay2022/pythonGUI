@@ -344,7 +344,20 @@ class StartScreen(QDialog):
         self.ellipse_rotation.setValidator(validator)
         self.sphere_center.setValidator(validator2)
         self.sphere_radius.setValidator(validator)
-
+        self.v2d_xend.setValidator(validator)
+        self.v2d_xstart.setValidator(validator)
+        self.v2d_yend.setValidator(validator)
+        self.v2d_ystart.setValidator(validator)
+        self.v2d_count.setValidator(validator)
+        self.v2d_radius.setValidator(validator)
+        self.v3d_xend.setValidator(validator)
+        self.v3d_xstart.setValidator(validator)
+        self.v3d_yend.setValidator(validator)
+        self.v3d_ystart.setValidator(validator)
+        self.v3d_zend.setValidator(validator)
+        self.v3d_zstart.setValidator(validator)
+        self.v3d_count.setValidator(validator)
+        self.v3d_radius.setValidator(validator)
 
         ##GP Validator
         self.trackProgressGP.setValidator(validator)
@@ -6863,7 +6876,7 @@ class StartScreen(QDialog):
                 self.shapeframe_error.setText("")
 
 
-        elif shapeData[0] == "VORONOI2D":
+        elif shapeData[0] == "VORONOI3D":
 
             if self.v3d_xstart.text() == "":
                 self.shapeframe_error.setText("Please fill x-start point")
@@ -7064,8 +7077,8 @@ class StartScreen(QDialog):
                 self.v2d_xend.setText(shapeValues[1])
                 self.v2d_ystart.setText(shapeValues[2])
                 self.v2d_yend.setText(shapeValues[3])
-                self.v3d_count.setText(shapeValues[4])
-                self.v3d_radius.setText(shapeValues[5])
+                self.v2d_count.setText(shapeValues[4])
+                self.v2d_radius.setText(shapeValues[5])
                 return
 
             elif shapeData[0] =="VORONOI3D":

@@ -12865,7 +12865,7 @@ border-bottom-color: rgb(0, 0, 0);</string>
        <rect>
         <x>9</x>
         <y>39</y>
-        <width>521</width>
+        <width>501</width>
         <height>181</height>
        </rect>
       </property>
@@ -12875,9 +12875,9 @@ border-bottom-color: rgb(0, 0, 0);</string>
       <widget class="QLabel" name="voronoi3dIcon">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>5</x>
          <y>0</y>
-         <width>201</width>
+         <width>190</width>
          <height>181</height>
         </rect>
        </property>
@@ -12972,7 +12972,7 @@ border-bottom-color: rgb(0, 0, 0);</string>
       <widget class="QLineEdit" name="v3d_ystart">
        <property name="geometry">
         <rect>
-         <x>320</x>
+         <x>300</x>
          <y>30</y>
          <width>51</width>
          <height>21</height>
@@ -12996,7 +12996,7 @@ border-bottom-color: rgb(0, 0, 0);</string>
       <widget class="QLabel" name="label_214">
        <property name="geometry">
         <rect>
-         <x>230</x>
+         <x>210</x>
          <y>0</y>
          <width>81</width>
          <height>21</height>
@@ -13017,7 +13017,7 @@ border-bottom-color: rgb(0, 0, 0);</string>
       <widget class="QLabel" name="label_215">
        <property name="geometry">
         <rect>
-         <x>230</x>
+         <x>210</x>
          <y>30</y>
          <width>81</width>
          <height>21</height>
@@ -13038,7 +13038,7 @@ border-bottom-color: rgb(0, 0, 0);</string>
       <widget class="QLineEdit" name="v3d_xstart">
        <property name="geometry">
         <rect>
-         <x>320</x>
+         <x>300</x>
          <y>0</y>
          <width>51</width>
          <height>21</height>
@@ -13152,7 +13152,7 @@ border-bottom-color: rgb(0, 0, 0);</string>
       <widget class="QLineEdit" name="v3d_xend">
        <property name="geometry">
         <rect>
-         <x>470</x>
+         <x>430</x>
          <y>0</y>
          <width>51</width>
          <height>21</height>
@@ -13176,7 +13176,7 @@ border-bottom-color: rgb(0, 0, 0);</string>
       <widget class="QLineEdit" name="v3d_yend">
        <property name="geometry">
         <rect>
-         <x>470</x>
+         <x>430</x>
          <y>30</y>
          <width>51</width>
          <height>21</height>
@@ -13200,9 +13200,9 @@ border-bottom-color: rgb(0, 0, 0);</string>
       <widget class="QLabel" name="label_252">
        <property name="geometry">
         <rect>
-         <x>380</x>
+         <x>360</x>
          <y>0</y>
-         <width>81</width>
+         <width>61</width>
          <height>21</height>
         </rect>
        </property>
@@ -13221,9 +13221,9 @@ border-bottom-color: rgb(0, 0, 0);</string>
       <widget class="QLabel" name="label_258">
        <property name="geometry">
         <rect>
-         <x>380</x>
+         <x>360</x>
          <y>30</y>
-         <width>81</width>
+         <width>61</width>
          <height>21</height>
         </rect>
        </property>
